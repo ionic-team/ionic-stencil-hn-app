@@ -59,7 +59,10 @@ class NewsList extends HTMLElement {
 
         // item title
         const newListTitle = document.createElement('div');
+
+        // dirty hack around styling issues that are currently in ionic-core
         newListTitle.style.width = '90%';
+
         newListTitle.appendChild(document.createTextNode(story.title));
         newListItem.appendChild(newListTitle);
 
