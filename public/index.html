@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="EN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Hacker News Clone">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoreHacker</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="CoreHacker">
+  <link rel="icon" sizes="192x192" href="images/icon.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="CoreHacker">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/icon.png">
+  <meta name="msapplication-TileColor" content="#488aff">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#488aff">
+
+  <!-- ionic-core -->
+  <script src="ionic-web/ionic.js"></script>
+
+  <!-- requestIdleCallback polyfill -->
+  <script>
+    /*!
+    * Copyright 2015 Google Inc. All rights reserved.
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    * http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+    * or implied. See the License for the specific language governing
+    * permissions and limitations under the License.
+    */
+
+    /*
+     * @see https://developers.google.com/web/updates/2015/08/using-requestidlecallback
+     */
+    window.requestIdleCallback = window.requestIdleCallback || function (e) { return setTimeout(function () { var n = Date.now(); e({ didTimeout: !1, timeRemaining: function () { return Math.max(0, 50 - (Date.now() - n)) } }) }, 1) }, window.cancelIdleCallback = window.cancelIdleCallback || function (e) { clearTimeout(e) };
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <ion-app>
+    <ion-toolbar color="primary">
+      <ion-title>CoreHacker</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+      <news-list type="news"></news-list>
+
+      <button-bar></button-bar>
+    </ion-content>
+  </ion-app>
+
+  <script src="build/main.js"></script>
+</body>
+
+</html>

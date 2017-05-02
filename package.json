@@ -1,0 +1,24 @@
+{
+  "name": "ionic_core_hacker_news",
+  "version": "0.0.1",
+  "description": "Hacker News PWA built with ionic-core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "buildProd": "npm run build && npm run minify && cp index.html public/index.html && cp styles/main.css public/styles/main.css",
+    "serve": "http-server ./ -p 8100 -o",
+    "lint": "tslint -c tslint.json 'script/*.ts'",
+    "minify": "uglifyjs --compress --mangle --output public/build/main.js -- build/main.js",
+    "lighthouse": "pwmetrics https://corehacker-10883.firebaseapp.com",
+    "http2Serve": "docker run -p 5000:5000 -v $PWD:/data surma/simplehttp2server"
+  },
+  "author": "Justin Willis",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "tslint": "^5.1.0",
+    "typescript": "^2.3.1",
+    "uglify-js": "github:mishoo/UglifyJS2#harmony"
+  }
+}

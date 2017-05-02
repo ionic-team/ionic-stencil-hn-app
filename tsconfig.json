@@ -1,0 +1,17 @@
+{ 
+	"compileOnSave": true,
+	"compilerOptions": {
+		"module": "umd",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"outDir": "build",
+    "target": "es2015"
+	},
+	"include": [
+		"script/*"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
+}

@@ -1,0 +1,1 @@
+{"rootDirectory":"./","staticFileGlobs":["**/*.{js,html,css}"],"dest":"sw.js","globIgnores":["sw.js"]}
