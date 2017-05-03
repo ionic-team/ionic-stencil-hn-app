@@ -72,15 +72,19 @@
 <body>
 
   <ion-app>
-    <ion-toolbar color="primary">
-      <ion-title>CoreHacker</ion-title>
-    </ion-toolbar>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>CoreHacker</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
     <ion-content>
       <news-list type="news"></news-list>
-
-      <button-bar></button-bar>
     </ion-content>
+
+    <ion-footer>
+      <button-bar></button-bar>
+    </ion-footer>
   </ion-app>
 
   <script src="build/main.js"></script>

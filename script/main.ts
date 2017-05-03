@@ -60,9 +60,6 @@ class NewsList extends HTMLElement {
         // item title
         const newListTitle = document.createElement('div');
 
-        // dirty hack around styling issues that are currently in ionic-core
-        newListTitle.style.width = '90%';
-
         newListTitle.appendChild(document.createTextNode(story.title));
         newListItem.appendChild(newListTitle);
 
@@ -100,17 +97,15 @@ class ButtonBar extends HTMLElement {
     shadowRoot.innerHTML = `
       <style>
         :host {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
+
         };
       </style>
 
-      <ion-toolbar>
-        <ion-button clear class="news">News</ion-button>
-        <ion-button clear class="show">Show</ion-button>
-        <ion-button clear class="jobs">Jobs</ion-button>
-      </ion-toolbar>
+        <ion-toolbar>
+          <ion-button clear class="news">News</ion-button>
+          <ion-button clear class="show">Show</ion-button>
+          <ion-button clear class="jobs">Jobs</ion-button>
+        </ion-toolbar>
     `;
 
 
