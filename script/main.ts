@@ -12,11 +12,21 @@ class NewsList extends HTMLElement {
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.innerHTML = `
+    // const shadowRoot = this.attachShadow({ mode: 'open' });
+    /*shadowRoot.innerHTML = `
       <style>
         :host {
         };
+      </style>
+
+      <ion-list>
+      </ion-list>
+    `;*/
+    this.innerHTML = `
+      <style>
+        ion-card-header {
+          white-space: normal;
+        }
       </style>
 
       <ion-list>
@@ -41,7 +51,7 @@ class NewsList extends HTMLElement {
   }
 
   private initList(data: any) {
-    const list = this.shadowRoot.querySelector('ion-list');
+    const list = this.querySelector('ion-list');
 
     // clear list so we can re-init if needed
     while (list.hasChildNodes()) {
@@ -51,23 +61,49 @@ class NewsList extends HTMLElement {
 
     data.forEach((story: any) => {
       (window as any).requestIdleCallback(() => {
-        const newListItem = document.createElement('ion-item');
+        const newListItem = document.createElement('ion-card');
 
-        newListItem.addEventListener('click', () => {
+        // card header
+        const listItemHeader = document.createElement('ion-card-header');
+        const listItemTitle = document.createElement('ion-card-title');
+
+        listItemTitle.appendChild(document.createTextNode(story.title));
+        listItemHeader.appendChild(listItemTitle);
+
+        newListItem.appendChild(listItemHeader);
+
+        // card content
+        const listItemContent = document.createElement('ion-card-content');
+
+        // posted by
+        const postedByDiv = document.createElement('div');
+        const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
+        postedByDiv.appendChild(postedByTextNode);
+
+        listItemContent.appendChild(postedByDiv);
+
+        // points
+        if (story.points !== null) {
+          const pointsDiv = document.createElement('div');
+          const pointsTextNode = document.createTextNode(`${story.points} points`);
+          console.log(pointsTextNode);
+          pointsDiv.appendChild(pointsTextNode);
+
+          listItemContent.appendChild(pointsDiv);
+        }
+
+        newListItem.appendChild(listItemContent);
+
+        // visit button
+        const visitButton = document.createElement('ion-button');
+        visitButton.appendChild(document.createTextNode('visit'));
+        visitButton.setAttribute('clear', 'true');
+
+        visitButton.addEventListener('click', () => {
           window.open(story.url);
         });
 
-        // item title
-        const newListTitle = document.createElement('div');
-
-        newListTitle.appendChild(document.createTextNode(story.title));
-        newListItem.appendChild(newListTitle);
-
-        // item points
-        /*const newListPoints = document.createElement('div');
-        newListPoints.className = 'points';
-        newListPoints.appendChild(document.createTextNode(story.points));
-        newListItem.appendChild(newListPoints);*/
+        newListItem.appendChild(visitButton);
 
         list.appendChild(newListItem);
       });
