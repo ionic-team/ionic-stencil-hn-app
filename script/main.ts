@@ -12,19 +12,10 @@ class NewsList extends HTMLElement {
   constructor() {
     super();
 
-    // const shadowRoot = this.attachShadow({ mode: 'open' });
-    /*shadowRoot.innerHTML = `
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.innerHTML = `
       <style>
-        :host {
-        };
-      </style>
-
-      <ion-list>
-      </ion-list>
-    `;*/
-    this.innerHTML = `
-      <style>
-        ion-card-header {
+        .card-header {
           white-space: normal;
         }
       </style>
@@ -51,11 +42,10 @@ class NewsList extends HTMLElement {
   }
 
   private initList(data: any) {
-    const list = this.querySelector('ion-list');
+    const list = this.shadowRoot.querySelector('ion-list');
 
     // clear list so we can re-init if needed
     while (list.hasChildNodes()) {
-      console.log('im here');
       list.removeChild(list.lastChild);
     }
 

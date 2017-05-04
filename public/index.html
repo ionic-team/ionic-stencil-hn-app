@@ -67,20 +67,26 @@
     }
   </script>
 
+  <style data-cmp-id="ion-card.md">__h,ion-card{display:block;overflow:hidden;visibility:inherit!important}ion-card img{display:block;width:100%}.card-md{margin:10px 10px 10px 10px;width:calc(100% - 20px);border-radius:2px;font-size:1.4rem;background:#fff;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)}.card-md ion-list{margin-bottom:0}.card-md>.item-wrapper:last-child .item,.card-md>.item:last-child,.card-md>.item:last-child .item-inner{border-bottom:0}.card-md .item-md.item-block .item-inner{border:0}.card-header-md+.card-content-md,.card-md .item+.card-content-md{padding-top:0}.card .note-md{font-size:1.3rem}.card-md h1{margin:0 0 2px;font-size:2.4rem;font-weight:400;color:#222}.card-md h2{margin:2px 0;font-size:1.6rem;font-weight:400;color:#222}.card-md h3,.card-md h4,.card-md h5,.card-md h6{margin:2px 0;font-size:1.4rem;font-weight:400;color:#222}.card-md p{margin:0 0 2px;font-size:1.4rem;font-weight:400;line-height:1.5;color:#222}.card-md+ion-card{margin-top:0}.card-md .text-md-primary{color:#327eff}.card-md-primary{color:#fff;background-color:#327eff}.card-md-primary h1,.card-md-primary h2,.card-md-primary h3,.card-md-primary h4,.card-md-primary h5,.card-md-primary h6,.card-md-primary p{color:#fff}.card-md-primary .text-md-primary{color:#327eff}.card-md-primary .text-md-secondary{color:#32db64}.card-md-primary .text-md-danger{color:#f53d3d}.card-md-primary .text-md-light{color:#f4f4f4}.card-md-primary .text-md-dark{color:#222}.card-md .text-md-secondary{color:#32db64}.card-md-secondary{color:#fff;background-color:#32db64}.card-md-secondary h1,.card-md-secondary h2,.card-md-secondary h3,.card-md-secondary h4,.card-md-secondary h5,.card-md-secondary h6,.card-md-secondary p{color:#fff}.card-md-secondary .text-md-primary{color:#327eff}.card-md-secondary .text-md-secondary{color:#32db64}.card-md-secondary .text-md-danger{color:#f53d3d}.card-md-secondary .text-md-light{color:#f4f4f4}.card-md-secondary .text-md-dark{color:#222}.card-md .text-md-danger{color:#f53d3d}.card-md-danger{color:#fff;background-color:#f53d3d}.card-md-danger h1,.card-md-danger h2,.card-md-danger h3,.card-md-danger h4,.card-md-danger h5,.card-md-danger h6,.card-md-danger p{color:#fff}.card-md-danger .text-md-primary{color:#327eff}.card-md-danger .text-md-secondary{color:#32db64}.card-md-danger .text-md-danger{color:#f53d3d}.card-md-danger .text-md-light{color:#f4f4f4}.card-md-danger .text-md-dark{color:#222}.card-md .text-md-light{color:#f4f4f4}.card-md-light{color:#000;background-color:#f4f4f4}.card-md-light h1,.card-md-light h2,.card-md-light h3,.card-md-light h4,.card-md-light h5,.card-md-light h6,.card-md-light p{color:#000}.card-md-light .text-md-primary{color:#327eff}.card-md-light .text-md-secondary{color:#32db64}.card-md-light .text-md-danger{color:#f53d3d}.card-md-light .text-md-light{color:#f4f4f4}.card-md-light .text-md-dark{color:#222}.card-md .text-md-dark{color:#222}.card-md-dark{color:#fff;background-color:#222}.card-md-dark h1,.card-md-dark h2,.card-md-dark h3,.card-md-dark h4,.card-md-dark h5,.card-md-dark h6,.card-md-dark p{color:#fff}.card-md-dark .text-md-primary{color:#327eff}.card-md-dark .text-md-secondary{color:#32db64}.card-md-dark .text-md-danger{color:#f53d3d}.card-md-dark .text-md-light{color:#f4f4f4}.card-md-dark .text-md-dark{color:#222}</style>
+
 </head>
 
 <body>
 
   <ion-app>
-    <ion-toolbar color="primary">
-      <ion-title>CoreHacker</ion-title>
-    </ion-toolbar>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>CoreHacker</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
     <ion-content>
       <news-list type="news"></news-list>
-
-      <button-bar></button-bar>
     </ion-content>
+
+    <ion-footer>
+      <button-bar></button-bar>
+    </ion-footer>
   </ion-app>
 
   <script src="build/main.js"></script>
