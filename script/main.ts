@@ -95,6 +95,19 @@ class NewsList extends HTMLElement {
 
         newListItem.appendChild(visitButton);
 
+        // comments button
+        const commentsButton = document.createElement('ion-button');
+        commentsButton.appendChild(document.createTextNode('comments'));
+        commentsButton.setAttribute('clear', 'true');
+
+        commentsButton.addEventListener('click', () => {
+          const commentsModal = document.querySelector('comments-modal');
+          commentsModal.setAttribute('comments', `${apiRootUrl}/item/${story.id}`);
+          commentsModal.classList.add('visible');
+        });
+
+        newListItem.appendChild(commentsButton);
+
         list.appendChild(newListItem);
       });
     });
@@ -115,6 +128,7 @@ class NewsList extends HTMLElement {
 customElements.define('news-list', NewsList);
 
 
+// button-bar component
 class ButtonBar extends HTMLElement {
   constructor() {
     super();
@@ -160,3 +174,111 @@ class ButtonBar extends HTMLElement {
 }
 
 customElements.define('button-bar', ButtonBar);
+
+
+// comments-modal component
+class CommentsModal extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.innerHTML = `
+      <style>
+        :host {
+          background: white;
+          color: black;
+          height: 100%;
+          display: block;
+          position: absolute;
+          z-index: 9999;
+          width: 100%;
+          box-shadow: 0px -2px 5px 0px #9e9e9e;
+          opacity: 0;
+          pointer-events: none;
+          will-change: transform, opacity;
+          translate3d(0px, 20rem, 0px);
+          transition: opacity 0.3s, transform 0.3s;
+          transition-timing-function: ease-out;
+        }
+
+        :host(.visible) {
+          pointer-events: auto;
+          opacity: 1;
+          transform: translate3d(0px, -66rem, 0px);
+        }
+
+        ion-list {
+          overflow-y: scroll;
+          height: 89%;
+        }
+      </style>
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-button class="closeButton" clear>
+            close
+          </ion-button>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-list>
+      </ion-list>
+    `;
+
+    this.shadowRoot.querySelector('.closeButton').addEventListener('click', () => {
+      this.classList.remove('visible');
+    });
+  }
+
+  static get observedAttributes() {
+    return ['comments'];
+  }
+
+  get comments() {
+    return this.hasAttribute('comments');
+  }
+
+  set comments(val: boolean) {
+    if (val) {
+      this.setAttribute('comments', '');
+    } else {
+      this.removeAttribute('comments');
+    }
+  }
+
+  private attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    fetch(newValue).then((response) => {
+      return response.json();
+    }).then((itemData: any) => {
+      console.log(itemData);
+      const list = this.shadowRoot.querySelector('ion-list');
+
+      itemData.comments.forEach((story: any) => {
+        (window as any).requestIdleCallback(() => {
+          const newListItem = document.createElement('ion-card');
+
+          // card content
+          const listItemContent = document.createElement('ion-card-content');
+
+          // posted by
+          const postedByDiv = document.createElement('div');
+          const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
+          postedByDiv.appendChild(postedByTextNode);
+
+          listItemContent.appendChild(postedByDiv);
+
+          const commentContent = document.createElement('div');
+          commentContent.innerHTML = story.content;
+
+          listItemContent.appendChild(commentContent);
+
+          newListItem.appendChild(listItemContent);
+
+          list.appendChild(newListItem);
+        });
+      });
+    });
+  }
+}
+
+customElements.define('comments-modal', CommentsModal);
