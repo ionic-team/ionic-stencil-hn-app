@@ -1,5 +1,7 @@
 const apiRootUrl = 'https://node-hnapi.herokuapp.com';
 
+declare var Ionic: any;
+
 
 // todo: convert these vanilla v1 web components
 // into ionic-core web components once our compiler
@@ -76,7 +78,6 @@ class NewsList extends HTMLElement {
         if (story.points !== null) {
           const pointsDiv = document.createElement('div');
           const pointsTextNode = document.createTextNode(`${story.points} points`);
-          console.log(pointsTextNode);
           pointsDiv.appendChild(pointsTextNode);
 
           listItemContent.appendChild(pointsDiv);
@@ -101,9 +102,17 @@ class NewsList extends HTMLElement {
         commentsButton.setAttribute('clear', 'true');
 
         commentsButton.addEventListener('click', () => {
-          const commentsModal = document.querySelector('comments-modal');
-          commentsModal.setAttribute('comments', `${apiRootUrl}/item/${story.id}`);
-          commentsModal.classList.add('visible');
+
+          Ionic.modal.create('comments-modal').then((modal: any) => {
+            console.log('modal created');
+
+            const commentsModal = document.querySelector('comments-modal');
+            commentsModal.setAttribute('comments', `${apiRootUrl}/item/${story.id}`);
+
+            modal.present().then(() => {
+              console.info('modal open');
+            });
+          });
         });
 
         newListItem.appendChild(commentsButton);
@@ -186,30 +195,6 @@ class CommentsModal extends HTMLElement {
       <style>
         :host {
           background: white;
-          color: black;
-          height: 100%;
-          display: block;
-          position: absolute;
-          z-index: 9999;
-          width: 100%;
-          box-shadow: 0px -2px 5px 0px #9e9e9e;
-          opacity: 0;
-          pointer-events: none;
-          will-change: transform, opacity;
-          translate3d(0px, 20rem, 0px);
-          transition: opacity 0.3s, transform 0.3s;
-          transition-timing-function: ease-out;
-        }
-
-        :host(.visible) {
-          pointer-events: auto;
-          opacity: 1;
-          transform: translate3d(0px, -66rem, 0px);
-        }
-
-        ion-list {
-          overflow-y: scroll;
-          height: 89%;
         }
       </style>
 
@@ -221,12 +206,15 @@ class CommentsModal extends HTMLElement {
         </ion-toolbar>
       </ion-header>
 
-      <ion-list>
-      </ion-list>
+      <ion-content>
+        <ion-list>
+        </ion-list>
+      </ion-content>
     `;
 
-    this.shadowRoot.querySelector('.closeButton').addEventListener('click', () => {
-      this.classList.remove('visible');
+    this.shadowRoot.querySelector('.closeButton').addEventListener('click', (uiEvent) => {
+      const ev = new (CustomEvent as any)('ionModalDismiss', { composed: true, bubbles: true });
+      uiEvent.target.dispatchEvent(ev);
     });
   }
 
@@ -247,11 +235,15 @@ class CommentsModal extends HTMLElement {
   }
 
   private attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    console.log(newValue);
     fetch(newValue).then((response) => {
       return response.json();
     }).then((itemData: any) => {
-      console.log(itemData);
       const list = this.shadowRoot.querySelector('ion-list');
+
+      while (list.hasChildNodes()) {
+        list.removeChild(list.lastChild);
+      }
 
       itemData.comments.forEach((story: any) => {
         (window as any).requestIdleCallback(() => {
