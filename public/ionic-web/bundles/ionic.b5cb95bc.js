@@ -1,1 +1,0 @@
-Ionic.loadComponents("b5cb95bc",function(t,e,n){var i=function(){function t(){}return t.prototype.render=function(){return e(this,n.theme(this,"list-header"),e("slot"))},t}();t.ListHeader=i},["ion-list-header","ListHeader",[],[],1,0,0]);

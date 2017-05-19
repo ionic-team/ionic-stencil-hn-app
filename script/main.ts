@@ -1,4 +1,6 @@
 const apiRootUrl = 'https://node-hnapi.herokuapp.com';
+let page = 1;
+let pageType: string;
 
 declare var Ionic: any;
 
@@ -20,11 +22,39 @@ class NewsList extends HTMLElement {
         .card-header {
           white-space: normal;
         }
+
+        .nextButton {
+          float: right;
+          margin-right: 10px;
+        }
+
+        .previousButton {
+          margin-left: 10px;
+        }
+
+        @media(min-width: 850px) {
+          .listWrapper {
+            margin-left: 23%;
+            margin-right: 23%;
+          }
+			  }
       </style>
 
-      <ion-list>
-      </ion-list>
+      <div class="listWrapper">
+        <ion-list>
+        </ion-list>
+
+        <ion-button class="previousButton">Previous</ion-button>
+        <ion-button class="nextButton">Next</ion-button>
+      </div>
     `;
+
+    shadowRoot.querySelector('.previousButton').addEventListener('click', () => {
+      this.previous();
+    });
+    shadowRoot.querySelector('.nextButton').addEventListener('click', () => {
+      this.next();
+    });
   }
 
   static get observedAttributes() {
@@ -52,85 +82,108 @@ class NewsList extends HTMLElement {
     }
 
     data.forEach((story: any) => {
-      (window as any).requestIdleCallback(() => {
-        const newListItem = document.createElement('ion-card');
+      const newListItem = document.createElement('ion-card');
 
-        // card header
-        const listItemHeader = document.createElement('ion-card-header');
-        const listItemTitle = document.createElement('ion-card-title');
+      // card header
+      const listItemHeader = document.createElement('ion-card-header');
+      const listItemTitle = document.createElement('ion-card-title');
 
-        listItemTitle.appendChild(document.createTextNode(story.title));
-        listItemHeader.appendChild(listItemTitle);
+      listItemTitle.appendChild(document.createTextNode(story.title));
+      listItemHeader.appendChild(listItemTitle);
 
-        newListItem.appendChild(listItemHeader);
+      newListItem.appendChild(listItemHeader);
 
-        // card content
-        const listItemContent = document.createElement('ion-card-content');
+      // card content
+      const listItemContent = document.createElement('ion-card-content');
 
-        // posted by
-        const postedByDiv = document.createElement('div');
-        const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
-        postedByDiv.appendChild(postedByTextNode);
+      // posted by
+      const postedByDiv = document.createElement('div');
+      const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
+      postedByDiv.appendChild(postedByTextNode);
 
-        listItemContent.appendChild(postedByDiv);
+      listItemContent.appendChild(postedByDiv);
 
-        // points
-        if (story.points !== null) {
-          const pointsDiv = document.createElement('div');
-          const pointsTextNode = document.createTextNode(`${story.points} points`);
-          pointsDiv.appendChild(pointsTextNode);
+      // points
+      if (story.points !== null) {
+        const pointsDiv = document.createElement('div');
+        const pointsTextNode = document.createTextNode(`${story.points} points`);
+        pointsDiv.appendChild(pointsTextNode);
 
-          listItemContent.appendChild(pointsDiv);
-        }
+        listItemContent.appendChild(pointsDiv);
+      }
 
-        newListItem.appendChild(listItemContent);
+      newListItem.appendChild(listItemContent);
 
-        // visit button
-        const visitButton = document.createElement('ion-button');
-        visitButton.appendChild(document.createTextNode('visit'));
-        visitButton.setAttribute('clear', 'true');
+      // visit button
+      const visitButton = document.createElement('ion-button');
+      visitButton.appendChild(document.createTextNode('visit'));
+      visitButton.setAttribute('clear', 'true');
 
-        visitButton.addEventListener('click', () => {
-          window.open(story.url);
-        });
+      visitButton.addEventListener('click', () => {
+        window.open(story.url);
+      });
 
-        newListItem.appendChild(visitButton);
+      newListItem.appendChild(visitButton);
 
-        // comments button
-        const commentsButton = document.createElement('ion-button');
-        commentsButton.appendChild(document.createTextNode('comments'));
-        commentsButton.setAttribute('clear', 'true');
+      // comments button
+      const commentsButton = document.createElement('ion-button');
+      commentsButton.appendChild(document.createTextNode('comments'));
+      commentsButton.setAttribute('clear', 'true');
 
-        commentsButton.addEventListener('click', () => {
+      commentsButton.addEventListener('click', () => {
 
-          Ionic.modal.create('comments-modal').then((modal: any) => {
-            console.log('modal created');
+        // tslint:disable-next-line:max-line-length
+        Ionic.overlay('modal', { component: 'comments-modal', componentProps: { comments: `${apiRootUrl}/item/${story.id}`, storyId: story.id } }).then((modal: any) => {
+          console.log('modal created');
 
-            const commentsModal = document.querySelector('comments-modal');
-            commentsModal.setAttribute('comments', `${apiRootUrl}/item/${story.id}`);
-
-            modal.present().then(() => {
-              console.info('modal open');
-            });
+          modal.present().then(() => {
+            console.log('modal finished transitioning in, commments: ', modal.componentProps.comments);
           });
         });
-
-        newListItem.appendChild(commentsButton);
-
-        list.appendChild(newListItem);
       });
+
+      newListItem.appendChild(commentsButton);
+
+      list.appendChild(newListItem);
     });
   }
 
-  private attributeChangedCallback(name: string, oldValue: boolean, newValue: boolean) {
+  private attributeChangedCallback(name: string, oldValue: boolean, newValue: string) {
     if (this.type) {
-      fetch(`${apiRootUrl}/${newValue}?page=1`).then((response) => {
+      fetch(`${apiRootUrl}/${newValue}?page=${page}`).then((response) => {
         return response.json();
       }).then((data) => {
         console.log(data);
         this.initList(data);
       });
+
+      pageType = newValue;
     }
+  }
+
+  private previous() {
+    page = page--;
+    console.log(page--);
+
+    fetch(`${apiRootUrl}/${pageType}?page=${page}`).then((response) => {
+      return response.json();
+    }).then((data) => {
+      console.log(data);
+      this.initList(data);
+    });
+  }
+
+  private next() {
+    page = page++;
+    console.log(page++);
+
+    console.log(`${apiRootUrl}/${pageType}?page=${page}`);
+    fetch(`${apiRootUrl}/${pageType}?page=${page}`).then((response) => {
+      return response.json();
+    }).then((data) => {
+      console.log(data);
+      this.initList(data);
+    });
   }
 }
 
@@ -187,6 +240,8 @@ customElements.define('button-bar', ButtonBar);
 
 // comments-modal component
 class CommentsModal extends HTMLElement {
+  public comments: string;
+
   constructor() {
     super();
 
@@ -201,7 +256,7 @@ class CommentsModal extends HTMLElement {
       <ion-header>
         <ion-toolbar>
           <ion-button class="closeButton" clear>
-            close
+            Close
           </ion-button>
         </ion-toolbar>
       </ion-header>
@@ -213,30 +268,15 @@ class CommentsModal extends HTMLElement {
     `;
 
     this.shadowRoot.querySelector('.closeButton').addEventListener('click', (uiEvent) => {
-      const ev = new (CustomEvent as any)('ionModalDismiss', { composed: true, bubbles: true });
+      const ev = new (CustomEvent as any)('ionDismiss', { composed: true, bubbles: true });
       uiEvent.target.dispatchEvent(ev);
     });
   }
 
-  static get observedAttributes() {
-    return ['comments'];
-  }
+  private connectedCallback() {
+    console.log(this.comments);
 
-  get comments() {
-    return this.hasAttribute('comments');
-  }
-
-  set comments(val: boolean) {
-    if (val) {
-      this.setAttribute('comments', '');
-    } else {
-      this.removeAttribute('comments');
-    }
-  }
-
-  private attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    console.log(newValue);
-    fetch(newValue).then((response) => {
+    fetch(this.comments).then((response) => {
       return response.json();
     }).then((itemData: any) => {
       const list = this.shadowRoot.querySelector('ion-list');
@@ -246,28 +286,26 @@ class CommentsModal extends HTMLElement {
       }
 
       itemData.comments.forEach((story: any) => {
-        (window as any).requestIdleCallback(() => {
-          const newListItem = document.createElement('ion-card');
+        const newListItem = document.createElement('ion-card');
 
-          // card content
-          const listItemContent = document.createElement('ion-card-content');
+        // card content
+        const listItemContent = document.createElement('ion-card-content');
 
-          // posted by
-          const postedByDiv = document.createElement('div');
-          const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
-          postedByDiv.appendChild(postedByTextNode);
+        // posted by
+        const postedByDiv = document.createElement('div');
+        const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
+        postedByDiv.appendChild(postedByTextNode);
 
-          listItemContent.appendChild(postedByDiv);
+        listItemContent.appendChild(postedByDiv);
 
-          const commentContent = document.createElement('div');
-          commentContent.innerHTML = story.content;
+        const commentContent = document.createElement('div');
+        commentContent.innerHTML = story.content;
 
-          listItemContent.appendChild(commentContent);
+        listItemContent.appendChild(commentContent);
 
-          newListItem.appendChild(listItemContent);
+        newListItem.appendChild(listItemContent);
 
-          list.appendChild(newListItem);
-        });
+        list.appendChild(newListItem);
       });
     });
   }

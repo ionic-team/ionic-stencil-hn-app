@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --watch",
-    "buildProd": "npm run build && npm run minify && cp index.html public/index.html && cp styles/main.css public/styles/main.css",
+    "buildProd": "tsc && npm run minify && cp index.html public/index.html && cp styles/main.css public/styles/main.css",
     "serve": "http-server ./ -p 8100 -o",
     "lint": "tslint -c tslint.json 'script/*.ts'",
     "minify": "uglifyjs --compress --mangle --output public/build/main.js -- build/main.js",

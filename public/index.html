@@ -35,6 +35,8 @@
   <!-- ionic-core -->
   <script src="ionic-web/ionic.js"></script>
 
+  <link rel="preload" href="ionic-web/ionic.core.js" as="script">
+
   <!-- requestIdleCallback polyfill -->
   <script>
     /*!
@@ -74,7 +76,7 @@
   <ion-app>
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title style="color: white;">CoreHacker</ion-title>
+        <ion-title>CoreHacker</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -85,8 +87,6 @@
     <ion-footer>
       <button-bar></button-bar>
     </ion-footer>
-
-    <comments-modal></comments-modal>
   </ion-app>
 
   <script src="build/main.js"></script>
