@@ -3,6 +3,12 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "public"
+    "public": "public",
+    "headers": [
+      {
+        "source": "/",
+        "headers": [{"key": "Link", "value": "</ionic-web/ionic.animation.js>;rel=preload;as=script,</ionic-web/bundles/ionic.099a109a.js>;rel=preload;as=script,</ionic-web/bundles/ionic.1ce251b8.js>;rel=preload;as=script,</ionic-web/bundles/ionic.12deed5a.js>;rel=preload;as=script,</ionic-web/bundles/ionic.2335c735.js>;rel=preload;as=script,</ionic-web/bundles/ionic.f891329d.js>;rel=preload;as=script"}]
+      }
+    ]
   }
 }

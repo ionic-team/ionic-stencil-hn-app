@@ -17,35 +17,50 @@
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="CoreHacker">
-  <link rel="icon" sizes="192x192" href="images/icon.png">
+  <link rel="icon" sizes="512x512" href="images/512.png">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="CoreHacker">
-  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="images/512.png">
 
   <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/icon.png">
+  <meta name="msapplication-TileImage" content="images/512.png">
   <meta name="msapplication-TileColor" content="#488aff">
 
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#488aff">
 
-  <!-- ionic-core -->
-  <script src="ionic-web/ionic.js"></script>
-
   <link rel="preload" href="ionic-web/ionic.core.js" as="script">
+  <link rel="preload" href="build/main.js" as="script">
 
   <script>
-    /*if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => console.log('service worker installed'))
-        .catch(err => console.log('Error', err));
-    }*/
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      });
+    }
   </script>
 
   <style>
+    header {
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      background: #327eff;
+      color: white;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      height: 56px;
+    }
+
+    body {
+      margin: 0;
+    }
+
     ion-scroll {
       background-color: #EDEDED !important;
     }
@@ -54,6 +69,9 @@
 </head>
 
 <body>
+
+  <header>
+  </header>
 
   <ion-app>
     <ion-header>
@@ -71,7 +89,9 @@
     </ion-footer>
   </ion-app>
 
-  <script src="build/main.js"></script>
+  <!-- ionic-core -->
+  <script src="ionic-web/ionic.js"></script>
+  <script async src="build/main.js"></script>
 </body>
 
 </html>
