@@ -1,4 +1,5 @@
-const apiRootUrl = 'https://node-hnapi.herokuapp.com';
+// const apiRootUrl = 'https://node-hnapi.herokuapp.com';
+const apiRootUrl = '/hn';
 let page = 1;
 let pageType: string;
 
