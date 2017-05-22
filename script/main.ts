@@ -207,6 +207,7 @@ class ButtonBar extends HTMLElement {
           <ion-button clear class="news">News</ion-button>
           <ion-button clear class="show">Show</ion-button>
           <ion-button clear class="jobs">Jobs</ion-button>
+          <ion-button clear class="ask">Ask</ion-button>
         </ion-toolbar>
     `;
 
@@ -223,10 +224,10 @@ class ButtonBar extends HTMLElement {
     shadowRoot.querySelector('.jobs').addEventListener('click', () => {
       this.loadStories('jobs');
     });
-  }
 
-  private connectedCallback() {
-    console.log(document.querySelector('news-list'));
+    shadowRoot.querySelector('.ask').addEventListener('click', () => {
+      this.loadStories('ask');
+    });
   }
 
   private loadStories(type: string) {
@@ -249,7 +250,13 @@ class CommentsModal extends HTMLElement {
     shadowRoot.innerHTML = `
       <style>
         :host {
-          background: white;
+          background-color: #EDEDED;
+        }
+
+        .replyCard {
+          width: 80%;
+          margin-left: 6rem;
+          box-shadow: none;
         }
       </style>
 
@@ -273,40 +280,84 @@ class CommentsModal extends HTMLElement {
     });
   }
 
-  private connectedCallback() {
-    console.log(this.comments);
-
-    fetch(this.comments).then((response) => {
+  private fetchComments(): Promise<any> {
+    return fetch(this.comments).then((response) => {
       return response.json();
-    }).then((itemData: any) => {
-      const list = this.shadowRoot.querySelector('ion-list');
+    });
+  }
 
-      while (list.hasChildNodes()) {
-        list.removeChild(list.lastChild);
-      }
+  private generateComments(comments: any) {
+    const list = this.shadowRoot.querySelector('ion-list');
 
-      itemData.comments.forEach((story: any) => {
-        const newListItem = document.createElement('ion-card');
+    while (list.hasChildNodes()) {
+      list.removeChild(list.lastChild);
+    }
 
-        // card content
-        const listItemContent = document.createElement('ion-card-content');
+    comments.forEach((story: any) => {
+      console.log(story);
+      const newListItem = document.createElement('ion-card');
 
-        // posted by
-        const postedByDiv = document.createElement('div');
-        const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
-        postedByDiv.appendChild(postedByTextNode);
+      // card content
+      const listItemContent = document.createElement('ion-card-content');
 
-        listItemContent.appendChild(postedByDiv);
+      // posted by
+      const postedByDiv = document.createElement('h4');
+      const postedByTextNode = document.createTextNode(`Posted by ${story.user} ${story.time_ago}`);
+      postedByDiv.appendChild(postedByTextNode);
 
-        const commentContent = document.createElement('div');
-        commentContent.innerHTML = story.content;
+      listItemContent.appendChild(postedByDiv);
 
-        listItemContent.appendChild(commentContent);
+      const commentContent = document.createElement('div');
+      commentContent.innerHTML = story.content;
 
-        newListItem.appendChild(listItemContent);
+      listItemContent.appendChild(commentContent);
 
-        list.appendChild(newListItem);
-      });
+      newListItem.appendChild(listItemContent);
+
+      list.appendChild(newListItem);
+
+      // comment replies
+      this.generateLevelComments(newListItem, story.comments);
+    });
+  }
+
+  private generateLevelComments(rootCard: any, comments: any[]) {
+    comments.forEach((story: any) => {
+      console.log(story);
+      const newListItem = document.createElement('ion-card');
+      newListItem.setAttribute('class', 'replyCard');
+
+      // card content
+      const listItemContent = document.createElement('ion-card-content');
+
+      // posted by
+      const postedByDiv = document.createElement('h4');
+      const postedByTextNode = document.createTextNode(`Reply by ${story.user} ${story.time_ago}`);
+      // const postedByTextNode = document.createTextNode('secondary comment');
+      postedByDiv.appendChild(postedByTextNode);
+
+      listItemContent.appendChild(postedByDiv);
+
+      const commentContent = document.createElement('div');
+      commentContent.innerHTML = story.content;
+
+      listItemContent.appendChild(commentContent);
+
+      newListItem.appendChild(listItemContent);
+
+      rootCard.appendChild(newListItem);
+
+    });
+  }
+
+  private connectedCallback() {
+    this.fetchComments().then((data) => {
+      this.generateComments(data.comments);
+
+      /*data.comments.forEach((comment: any) => {
+        console.log('inside', comment);
+        this.generateComments(comment.comments);
+      });*/
     });
   }
 }
