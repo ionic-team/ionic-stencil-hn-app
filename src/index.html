@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="EN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Hacker News Clone">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoreHacker</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="CoreHacker">
+  <link rel="icon" sizes="512x512" href="images/512.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="CoreHacker">
+  <link rel="apple-touch-icon" href="images/512.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/512.png">
+  <meta name="msapplication-TileColor" content="#488aff">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#488aff">
+
+</head>
+
+<body>
+  <ion-app>
+    <news-container></news-container>
+  </ion-app>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      });
+    }
+  </script>
+</body>
+
+</html>
