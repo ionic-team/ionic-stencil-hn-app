@@ -1,4 +1,4 @@
-# Stencil Starter App
+# Ionic-Stencil HN app
 
 Stencil is a compiler for building fast web apps using Web Components.
 
@@ -8,9 +8,14 @@ Stencil components are just Web Components, so they work in any major framework 
 
 Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
 
+This PWA is a Hacker News demo PWA built with Stencil and our Ionic core components that are also built with Stencil.
+
+## Performance
+We use WebPageTest to keep track of the loading performance of this demo on real, low end devices and an emerging markets 3G network. [Here](https://www.webpagetest.org/lighthouse.php?test=170623_YE_1C1R&run=2) is the latest lighthouse from our latest WebPageTest. This is with a Moto G with an emerging markets 3G network.
+
 ## Getting Started
 
-To start a new project using Stencil, clone this repo and run:
+To start devving on this project, clone this repo and run:
 
 ```bash
 npm start
