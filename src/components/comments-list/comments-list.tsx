@@ -16,9 +16,7 @@ export class CommentsList {
             <h2>
               {`Posted by ${comment.user} ${comment.time_ago}`}
             </h2>
-            <div props={{
-              innerHTML: comment.content
-            }}></div>
+            <div innerHTML={comment.content}></div>
           </ion-label>
         </ion-item>
       );

@@ -147,7 +147,6 @@ export class NewsContainer {
     return [
       <ion-header mdHeight='56px' iosHeight='61px'>
         <ion-toolbar color='primary'>
-          <img class='ionic-icon' src='ionic.svg' alt='ionic'></img>
 
           <div class='tabs-bar'>
             <ion-button
