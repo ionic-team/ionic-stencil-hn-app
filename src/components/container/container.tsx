@@ -7,7 +7,7 @@ import { Ionic } from '@ionic/core';
 })
 export class NewsContainer {
 
-  @State() stories: any[] = [];
+  @State() stories: any[];
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
   page: number = 1;
   pageType: string;
@@ -18,12 +18,13 @@ export class NewsContainer {
   prevClass: any;
 
   ionViewWillLoad() {
-    if (Ionic.isServer) return;
+    // if (Ionic.isServer) return;
 
     this.firstSelectedClass = true;
 
     // call to firebase function for first view
-    this.fakeFetch('https://us-central1-corehacker-10883.cloudfunctions.net/fetchNews').then((data) => {
+    this.fakeFetch(`${this.apiRootUrl}/news?page=1`).then((data) => {
+      console.log(data);
       this.stories = data;
       this.pageType = 'news';
     });
@@ -47,7 +48,7 @@ export class NewsContainer {
   }
 
   getStories(type: string) {
-    if (Ionic.isServer) return;
+    // if (Ionic.isServer) return;
 
     // reset page number
     this.page = 1;
@@ -144,76 +145,154 @@ export class NewsContainer {
   render() {
     console.log('rendering');
 
-    return [
-      <ion-header mdHeight='56px' iosHeight='61px'>
-        <ion-toolbar color='primary'>
+    if (this.stories !== undefined) {
+      return [
+        <ion-header mdHeight='56px' iosHeight='61px'>
+          <ion-toolbar color='primary'>
 
-          <div class='tabs-bar'>
-            <ion-button
-              class={{
-                'header-button': true,
-                'first-button': true,
-                'header-button-selected': this.firstSelectedClass
-              }}
-              clear
-              onClick={() => this.getStories('news')}
-            >
-              News
+            <ion-buttons slot='left'>
+              <ion-icon name='ionic'></ion-icon>
+            </ion-buttons>
+
+            <div class='tabs-bar'>
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'first-button': true,
+                  'header-button-selected': this.firstSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('news')}
+              >
+                News
           </ion-button>
-            <ion-button
-              class={{
-                'header-button': true,
-                'header-button-selected': this.secondSelectedClass
-              }}
-              clear
-              onClick={() => this.getStories('show')}
-            >
-              Show
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'header-button-selected': this.secondSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('show')}
+              >
+                Show
           </ion-button>
-            <ion-button
-              class={{
-                'header-button': true,
-                'header-button-selected': this.thirdSelectedClass
-              }}
-              clear
-              onClick={() => this.getStories('jobs')}
-            >
-              Jobs
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'header-button-selected': this.thirdSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('jobs')}
+              >
+                Jobs
           </ion-button>
-            <ion-button
-              class={{
-                'header-button': true,
-                'header-button-selected': this.fourthSelectedClass
-              }}
-              clear
-              onClick={() => this.getStories('ask')}
-            >
-              Ask
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'header-button-selected': this.fourthSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('ask')}
+              >
+                Ask
           </ion-button>
-          </div>
-        </ion-toolbar>
-      </ion-header>,
-      <ion-content>
-        <news-list type={this.stories}>
-        </news-list>
-      </ion-content>,
-      <ion-footer>
-        <ion-toolbar class='pager'>
-          <ion-buttons slot='start'>
-            <ion-button class={this.prevClass} clear={true} onClick={() => this.previous()}>
-              prev
+            </div>
+          </ion-toolbar>
+        </ion-header>,
+        <ion-content>
+          <news-list type={this.stories}>
+          </news-list>
+        </ion-content>,
+        <ion-footer>
+          <ion-toolbar class='pager'>
+            <ion-buttons slot='start'>
+              <ion-button class={this.prevClass} clear={true} onClick={() => this.previous()}>
+                prev
           </ion-button>
-          </ion-buttons>
-          <span class='page-number'>
-            page {this.page}
-          </span>
-          <ion-buttons slot='end'>
-            <ion-button color='primary' clear={true} onClick={() => this.next()}>
-              next
+            </ion-buttons>
+            <span class='page-number'>
+              page {this.page}
+            </span>
+            <ion-buttons slot='end'>
+              <ion-button color='primary' clear={true} onClick={() => this.next()}>
+                next
           </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-footer>
-    ];
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-footer>
+      ];
+    } else {
+      return [
+        <ion-header mdHeight='56px' iosHeight='61px'>
+          <ion-toolbar color='primary'>
+
+            <ion-buttons>
+              <ion-icon name='ionic'></ion-icon>
+            </ion-buttons>
+
+            <div class='tabs-bar'>
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'first-button': true,
+                  'header-button-selected': this.firstSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('news')}
+              >
+                News
+          </ion-button>
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'header-button-selected': this.secondSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('show')}
+              >
+                Show
+          </ion-button>
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'header-button-selected': this.thirdSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('jobs')}
+              >
+                Jobs
+          </ion-button>
+              <ion-button
+                class={{
+                  'header-button': true,
+                  'header-button-selected': this.fourthSelectedClass
+                }}
+                clear
+                onClick={() => this.getStories('ask')}
+              >
+                Ask
+          </ion-button>
+            </div>
+          </ion-toolbar>
+        </ion-header>,
+        <ion-footer>
+          <ion-toolbar class='pager'>
+            <ion-buttons slot='start'>
+              <ion-button class={this.prevClass} clear={true} onClick={() => this.previous()}>
+                prev
+          </ion-button>
+            </ion-buttons>
+            <span class='page-number'>
+              page {this.page}
+            </span>
+            <ion-buttons slot='end'>
+              <ion-button color='primary' clear={true} onClick={() => this.next()}>
+                next
+          </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-footer>
+      ]
+    }
   }
 }

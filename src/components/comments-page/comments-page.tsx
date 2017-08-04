@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { Ionic } from '@ionic/core';
+// import { Ionic } from '@ionic/core';
 
 @Component({
   tag: 'comments-page'
@@ -9,7 +9,7 @@ export class CommentsPage {
   @Prop() comments: string;
 
   close() {
-    Ionic.emit(this, 'ionDismiss');
+    // Ionic.emit(this, 'ionDismiss');
   }
 
   render() {

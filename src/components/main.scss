@@ -6,6 +6,33 @@ ion-toolbar ion-button.header-button button {
   color: white !important;
 }
 
+ion-header {
+  ion-toolbar .toolbar-content {
+  display: flex;
+  flex-direction: row;
+
+  ion-buttons {
+    order: 1;
+    height: 32px;
+    width: 32px;
+    margin-right: 17px;
+
+    ion-icon {
+      fill: white;
+
+      svg {
+        width: 3em;
+        height: 2em;
+      }
+    }
+  }
+
+  .tabs-bar {
+    order: 2;
+  }
+}
+}
+
 .points {
   color: #327eff;
   font-weight: bold;
