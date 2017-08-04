@@ -3,16 +3,22 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "public",
+    "public": "www",
     "rewrites": [
       {
-        "source": "/hn/**", "function": "hn"
+        "source": "/hn",
+        "function": "hn"
       }
     ],
     "headers": [
       {
         "source": "/",
-        "headers": [{"key": "Link", "value": "</ionic-web/ionic.animation.js>;rel=preload;as=script,</ionic-web/bundles/ionic.099a109a.js>;rel=preload;as=script,</ionic-web/bundles/ionic.1ce251b8.js>;rel=preload;as=script,</ionic-web/bundles/ionic.12deed5a.js>;rel=preload;as=script,</ionic-web/bundles/ionic.2335c735.js>;rel=preload;as=script,</ionic-web/bundles/ionic.f891329d.js>;rel=preload;as=script,</hn/news?page=1>;rel=preload"}]
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</build/app.global.js>;rel=preload;as=script,</build/app/app.h1cdl7wyaiaz.js>;rel=preload;as=script,</build/app/bguadrwnacsq.js>;rel=preload;as=script,</build/app/70p7wwvlegtj.css>;rel=preload;as=style,</build/app/fvzmx6x7sq7d.js>;rel=preload;as=script,</build/app/mgekeaoebvgm.css>;rel=preload;as=style,</build/app/uncqiyjsjzfr.js>;rel=preload;as=script,</build/app/okgm0mspzb9c.css>;rel=preload;as=style,</build/app/svg/md-ionic.svg>;rel=preload;as=image,</build/app/mldishtevefa.js>;rel=preload;as=script,</build/app/advpnqatxcre.js>;rel=preload;as=script,</build/app/cbucl6irjrc1.css>;rel=preload;as=style,</hn>;rel=preload"
+          }
+        ]
       }
     ]
   }
