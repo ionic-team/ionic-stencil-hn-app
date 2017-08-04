@@ -1,5 +1,5 @@
-import { Component, h, State, Ionic } from '@stencil/core';
-
+import { Component, State } from '@stencil/core';
+import { Ionic } from '@ionic/core';
 
 @Component({
   tag: 'news-container',

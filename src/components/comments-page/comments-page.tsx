@@ -1,4 +1,5 @@
-import { Component, h, Prop, Ionic } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
+import { Ionic } from '@ionic/core';
 
 @Component({
   tag: 'comments-page'
