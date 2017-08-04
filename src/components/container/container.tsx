@@ -83,7 +83,8 @@ export class NewsContainer {
         break;
     }
 
-    Ionic.controller('loading', { content: `fetching ${type} articles...` }).then((loading: any) => {
+    /*Ionic.controller('loading', { content: `fetching ${type} articles...` }).then((loading: any) => {
+      console.log(loading);
       loading.present().then(() => {
 
         this.fakeFetch(`${this.apiRootUrl}/${type}?page=1`).then((data) => {
@@ -95,13 +96,17 @@ export class NewsContainer {
         this.pageType = type;
 
       });
-    });
+    });*/
+    this.fakeFetch(`${this.apiRootUrl}/${type}?page=1`).then((data) => {
+      this.stories = data;
+      this.pageType = type;
+    })
   }
 
   previous() {
     if (this.page > 1) {
 
-      Ionic.controller('loading', { content: `fetching articles...` }).then(loading => {
+      /*Ionic.controller('loading', { content: `fetching articles...` }).then(loading => {
         loading.present().then(() => {
 
           this.page = this.page--;
@@ -114,6 +119,11 @@ export class NewsContainer {
           });
 
         });
+      });*/
+
+      this.page = this.page--;
+      this.fakeFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
+        this.stories = data;
       });
     } else {
       window.navigator.vibrate(200);
@@ -121,7 +131,7 @@ export class NewsContainer {
   }
 
   next() {
-    Ionic.controller('loading', { content: `fetching articles...` }).then(loading => {
+    /*Ionic.controller('loading', { content: `fetching articles...` }).then(loading => {
       loading.present().then(() => {
 
         this.page = this.page++;
@@ -135,6 +145,13 @@ export class NewsContainer {
         });
 
       });
+    });*/
+    this.page = this.page++;
+
+    this.fakeFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
+      if (data.length !== 0) {
+        this.stories = data;
+      }
     });
   }
 

@@ -91,11 +91,15 @@ ion-footer ion-toolbar {
 }
 
 .header-button-selected {
-  opacity: 1;
+  opacity: 1 !important;
+
+  .header-button {
+    opacity: 1 !important;
+  }
 }
 
 .header-button-selected button {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .tabs-bar {
