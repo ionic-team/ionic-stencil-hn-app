@@ -121,7 +121,8 @@ export class NewsContainer {
         });
       });*/
 
-      this.page = this.page--;
+      this.page = this.page - 1;
+      console.log(this.page);
       this.fakeFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
         this.stories = data;
       });
@@ -146,8 +147,8 @@ export class NewsContainer {
 
       });
     });*/
-    this.page = this.page++;
-
+    this.page = this.page + 1;
+    console.log(this.page);
     this.fakeFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
       if (data.length !== 0) {
         this.stories = data;
