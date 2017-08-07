@@ -8,7 +8,7 @@ export class CommentsList {
   @Prop() type: any;
 
   render() {
-    const items = this.type.map((comment: any) => {
+    const items = this.type.map((comment) => {
       return (
         <ion-item>
           <ion-label>

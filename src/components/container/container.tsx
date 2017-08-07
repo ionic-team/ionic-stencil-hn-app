@@ -7,15 +7,16 @@ import { Ionic } from '@ionic/core';
 })
 export class NewsContainer {
 
-  @State() stories: any[];
-  apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
   page: number = 1;
   pageType: string;
+  apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
+  prevClass: any;
+
+  @State() stories: any[];
   @State() firstSelectedClass: boolean;
   @State() secondSelectedClass: boolean = false;
   @State() thirdSelectedClass: boolean = false;
   @State() fourthSelectedClass: boolean = false;
-  prevClass: any;
 
   ionViewWillLoad() {
     // if (Ionic.isServer) return;
@@ -27,7 +28,9 @@ export class NewsContainer {
       console.log(data);
       this.stories = data;
       this.pageType = 'news';
-    });
+    }).then((err) => {
+      console.error('Could not load cached data from firebase', err);
+    })
   }
 
   fakeFetch(url: string): Promise<any[]> {
@@ -100,6 +103,8 @@ export class NewsContainer {
     this.fakeFetch(`${this.apiRootUrl}/${type}?page=1`).then((data) => {
       this.stories = data;
       this.pageType = type;
+    }).catch((err) => {
+      console.error('Could not load data', err);
     })
   }
 
@@ -122,10 +127,11 @@ export class NewsContainer {
       });*/
 
       this.page = this.page - 1;
-      console.log(this.page);
       this.fakeFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
         this.stories = data;
-      });
+      }).catch((err) => {
+        console.error('Could not load data', err);
+      })
     } else {
       window.navigator.vibrate(200);
     }
@@ -147,13 +153,15 @@ export class NewsContainer {
 
       });
     });*/
+
     this.page = this.page + 1;
-    console.log(this.page);
     this.fakeFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
       if (data.length !== 0) {
         this.stories = data;
       }
-    });
+    }).catch((err) => {
+      console.error('Could not load next page of data', err);
+    })
   }
 
   ionViewWillUpdate() {

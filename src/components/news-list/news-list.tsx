@@ -11,10 +11,6 @@ export class NewsList {
   @Prop() type: any[];
   @State() fakeData: any[] = [];
 
-  ionViewWillLoad() {
-    console.log(this.type);
-  }
-
 
   fakeFetch(url: string): Promise<any[]> {
     return new Promise((resolve, reject) => {
@@ -36,7 +32,7 @@ export class NewsList {
   comments(story: any) {
     // if (Ionic.isServer) return;
 
-    Ionic.controller('loading', { content: 'fetching comments...' }).then(loading => {
+    /*Ionic.controller('loading', { content: 'fetching comments...' }).then(loading => {
       loading.present();
 
       this.fakeFetch(`${this.apiRootUrl}/item/${story.id}`).then((data: any) => {
@@ -53,7 +49,7 @@ export class NewsList {
         }, 300);
       });
 
-    });
+    });*/
   }
 
   render() {
@@ -69,7 +65,7 @@ export class NewsList {
             </h2>
             <h3 class='comments-text' onClick={() => this.comments(story)}>
               Posted by {story.user} {story.time_ago} | {story.comments_count} comments
-                </h3>
+            </h3>
           </ion-label>
         </ion-item>
       )
