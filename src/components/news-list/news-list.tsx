@@ -1,5 +1,6 @@
 import { Component, Prop, State } from '@stencil/core';
-import { Ionic } from '@ionic/core';
+// import { Ionic } from '@ionic/core';
+// import { fakeFetch } from '../../utils';
 
 @Component({
   tag: 'news-list'
@@ -8,26 +9,8 @@ export class NewsList {
 
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
-  @Prop() type: any[];
+  @Prop() storyList: any[];
   @State() fakeData: any[] = [];
-
-
-  fakeFetch(url: string): Promise<any[]> {
-    return new Promise((resolve, reject) => {
-      const request = new XMLHttpRequest();
-
-      request.addEventListener('load', function () {
-        resolve(JSON.parse(this.responseText));
-      });
-
-      request.addEventListener('error', function () {
-        reject(`error: ${this.statusText} / ${this.status}`);
-      });
-
-      request.open('GET', url, true);
-      request.send();
-    });
-  }
 
   comments(story: any) {
     // if (Ionic.isServer) return;
@@ -35,7 +18,7 @@ export class NewsList {
     /*Ionic.controller('loading', { content: 'fetching comments...' }).then(loading => {
       loading.present();
 
-      this.fakeFetch(`${this.apiRootUrl}/item/${story.id}`).then((data: any) => {
+      fakeFetch(`${this.apiRootUrl}/item/${story.id}`).then((data: any) => {
         setTimeout(() => {
           loading.dismiss().then(() => {
             Ionic.controller('modal', { component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then(modal => {
@@ -53,7 +36,7 @@ export class NewsList {
   }
 
   render() {
-    const items = this.type.map((story: any) => {
+    const items = this.storyList.map((story: any) => {
       return (
         <ion-item>
           <div class='points' slot='start'>
