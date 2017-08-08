@@ -100,7 +100,7 @@ export class NewsContainer {
         <ion-toolbar class='pager'>
           <ion-buttons slot='start'>
             <ion-button
-              class={{ 'no-back': this.page === 1, 'yes-back': this.page === 1 }}
+              class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}
               clear={true}
               onclick={() => this.getStories(this.pageType, this.page - 1)}
             >
@@ -112,6 +112,7 @@ export class NewsContainer {
           </span>
           <ion-buttons slot='end'>
             <ion-button
+              color='primary'
               clear={true}
               onclick={() => this.getStories(this.pageType, this.page + 1)}
             >
