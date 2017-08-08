@@ -5,7 +5,7 @@
   "description": "Stencil Starter App",
   "scripts": {
     "build": "stencil build",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"http-server\" ",
+    "dev": "sd concurrent \"stencil build --dev --watch\" \"http-server www\" ",
     "test": "stencil build --watch",
     "serve": "stencil-dev-server",
     "start": "npm run dev"

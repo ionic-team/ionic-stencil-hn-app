@@ -7,12 +7,12 @@ ion-toolbar ion-button.header-button button {
 }
 
 ion-header {
-  ion-toolbar .toolbar-content {
+  ion-toolbar {
   display: flex;
   flex-direction: row;
 
   ion-buttons {
-    order: 1;
+    order: 1 !important;
     height: 32px;
     width: 32px;
     margin-right: 17px;

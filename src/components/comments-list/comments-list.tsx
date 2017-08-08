@@ -5,10 +5,10 @@ import { Component, Prop } from '@stencil/core';
 })
 export class CommentsList {
 
-  @Prop() type: any;
+  @Prop() commentList: any;
 
   render() {
-    const items = this.type.map((comment) => {
+    const items = this.commentList.map((comment) => {
       return (
         <ion-item>
           <ion-label>
