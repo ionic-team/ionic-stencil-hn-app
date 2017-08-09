@@ -5,12 +5,12 @@ import { Component, State, Element } from '@stencil/core';
   styleUrl: '../main.scss'
 })
 export class NewsContainer {
-  
+
   @Element() el: HTMLElement;
   page: number;
   pageType: string;
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
-  
+
   @State() stories: any[];
 
   ionViewDidLoad() {
@@ -89,12 +89,10 @@ export class NewsContainer {
         </ion-toolbar>
       </ion-header>,
 
-      (this.stories !== undefined) ?
-        <ion-content>
-          <news-list storyList={this.stories}>
-          </news-list>
-        </ion-content>
-        : null,
+      <ion-content>
+        <news-list storyList={this.stories}>
+        </news-list>
+      </ion-content>,
 
       <ion-footer>
         <ion-toolbar class='pager'>
@@ -121,7 +119,7 @@ export class NewsContainer {
           </ion-buttons>
         </ion-toolbar>
       </ion-footer>,
-      
+
       <fake-fetch></fake-fetch>
     ];
   }
