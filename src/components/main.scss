@@ -146,3 +146,16 @@ ion-footer ion-toolbar {
     font-weight: 600;
   }
 }
+
+ion-skeleton-text {
+  display: inline-block;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+ion-skeleton-text span {
+  display: inline-block;
+  font-size: 0.8rem;
+  background-color: #ececec;
+}

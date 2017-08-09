@@ -63,7 +63,7 @@ export class NewsList {
     } else {
       return (
         <ion-list>
-           {Array.from(Array(10)).map(() =>
+          {Array.from(Array(10)).map(() =>
             <ion-item>
               <div class='points' slot='start'>
                 <ion-skeleton-text width='20px'></ion-skeleton-text>
