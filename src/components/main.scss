@@ -15,13 +15,14 @@ ion-header {
     order: 1 !important;
     height: 32px;
     width: 32px;
-    margin-right: 17px;
+    margin-right: 29px;
+    padding-left: 11px;
 
     ion-icon {
       fill: white;
 
       svg {
-        width: 3em;
+        width: 2.5em;
         height: 2em;
       }
     }
@@ -33,10 +34,21 @@ ion-header {
 }
 }
 
+news-list {
+  ion-list {
+    .item-inner {
+      padding-bottom: 10px;
+      padding-top: 7px;
+      border-bottom-color: #e4e7ec !important;
+    }
+  }
+}
+
 .points {
   color: #327eff;
   font-weight: bold;
-  width: 45px;
+  width: 55px;
+  padding-left: 10px;
 }
 
 .header-icon {
@@ -48,6 +60,8 @@ ion-header {
 
 .page-number {
   line-height: 3;
+  text-transform: uppercase;
+  font-size: 92%;
 }
 
 .pager {
@@ -125,4 +139,10 @@ ion-footer ion-toolbar {
   height: 40px;
   float: left;
   margin-left: 10px;
+}
+
+.bar-buttons {
+  button {
+    font-weight: 600;
+  }
 }
