@@ -15,7 +15,13 @@ export class NewsContainer {
 
   ionViewDidLoad() {
     // call to firebase function for first view
-    this.getStories('news', 1);
+    const fakeFetch: any = this.el.querySelector('fake-fetch');
+
+    fakeFetch.fetch('/hn').then((data) => {
+      this.stories = data;
+    }).catch((err) => {
+      console.error('Could not load cached data', err);
+    })
   }
 
 

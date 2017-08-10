@@ -24,71 +24,59 @@ const fileManifest = [
   },
   {
     "url": "build/app.js",
-    "revision": "f9f7530437c289a35700a7378ecf473b"
+    "revision": "5be8edb07fd6a6c847f98f4577b02c1e"
   },
   {
     "url": "build/app.registry.json",
-    "revision": "1cdfd5743e19049c9a8d04e764244211"
-  },
-  {
-    "url": "build/app\\app.h1cdl7wyaiaz.js",
-    "revision": "632b0221707b3336872a8c517bffa11a"
-  },
-  {
-    "url": "build/app\\bguadrwnacsq.js",
-    "revision": "0350f4b3a2067110b1e642ee5931a38b"
-  },
-  {
-    "url": "build/app\\70p7wwvlegtj.css",
-    "revision": "0350f4b3a2067110b1e642ee5931a38d"
-  },
-  {
-    "url": "build/app\\fvzmx6x7sq7d.js",
-    "revision": "552a024fac0ea69eedd4b1e53bb497fc"
-  },
-  {
-    "url": "build/app\\mgekeaoebvgm.css",
-    "revision": "075bd0318fd761a95d13a6d334aaa8bc"
-  },
-  {
-    "url": "/build/app\\uncqiyjsjzfr.js",
-    "revision": "0350f4b3a2067110b1e642ee5931a38z"
-  },
-  {
-    "url": "build/app\\okgm0mspzb9c.css",
-    "revision": "552a024fac0ea69eedd4b1e53bb4972f"
-  },
-  {
-    "url": "build/app\\mldishtevefa.js",
-    "revision": "552a024fac0ea69eedd4b1e53bb497cf"
-  },
-  {
-    "url": "build/app\\advpnqatxcre.js",
-    "revision": "fabb6083328f7ec55ac7778895e2011x"
-  },
-  {
-    "url": "build/app/cbucl6irjrc1.css",
-    "revision": "fabb6083328f7ec55ac7778895e2011y"
-  },
-  {
-    "url": "favicon.ico",
-    "revision": "0350f4b3a2067110b1e642ee5931a38a"
-  },
-  {
-    "url": "index.html",
-    "revision": "552a024fac0ea69eedd4b1e53bb497ff"
+    "revision": "9ec2bc1e3de12c77dba155c12dfef9d2"
   },
   {
     "url": "manifest.json",
-    "revision": "095bd0318fd761a95d13a6d334aaa8bc"
-  },
-  {
-    "url": "sw.js",
-    "revision": "fabb6083328f7ec55ac7778895e2011f"
+    "revision": "9ec2bc1e3de12c77dba155c12dfef9e4"
   },
   {
     "url": "workbox-sw.prod.v1.1.0.js",
-    "revision": "df86dfc69c6d017722ecb8a16d34c849"
+    "revision": "9ec2bc1e3de12c77dba155c12dfef8c2"
+  },
+  {
+    "url": "index.html",
+    "revision": "9ec2bc1e3de12c77dba155c12dfef3r9"
+  },
+  {
+    "url": "build/app\\j4qbspqcgtos.js",
+    "revision": "ef97d85389bc296a461907b457b39e35"
+  },
+    {
+    "url": "build/app\\l6tawixojklw.css",
+    "revision": "e8fab9f5d61c7bdda49a325dac4d26c4"
+  },
+    {
+    "url": "build/app\\bguadrwnacsq.js",
+    "revision": "3db760eb016a9172089a0ad56cd52801"
+  },
+    {
+    "url": "build/app\\70p7wwvlegtj.css",
+    "revision": "e6b7a011a6a6da858248b6319f22cd17"
+  },
+  {
+    "url": "build/app\\fvzmx6x7sq7d.js",
+    "revision": "b9b7c125781013402c76c058d0c1219e"
+  },
+    {
+    "url": "build/app\\mgekeaoebvgm.css",
+    "revision": "cff5bddd81d5656186386d45ec100f30"
+  },
+    {
+    "url": "build/app\\cbucl6irjrc1.css",
+    "revision": "a40322a637ba4312c7efaf997189c5d3"
+  },
+    {
+    "url": "build/app\\advpnqatxcre.js",
+    "revision": "ca3be6428e2795d8ac318937d6bbbff6"
+  },
+    {
+    "url": "build/app\\mldishtevefa.js",
+    "revision": "0a5ab271f11e542eaad76c81fd6b1816"
   }
 ];
 
