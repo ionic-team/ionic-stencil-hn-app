@@ -1,6 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
-// import { Ionic } from '@ionic/core';
-// import { fakeFetch } from '../../utils';
+import { LoadingController, ModalController } from '@ionic/core';
 
 @Component({
   tag: 'news-list'
@@ -10,16 +9,15 @@ export class NewsList {
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
   @Prop() storyList: any[];
+  @Prop({ connect: 'ion-loading-ctrl' }) loadingCtrl: LoadingController;
+  @Prop({ connect: 'ion-modal-ctrl' }) modalCtrl: ModalController;
+
   @State() fakeData: any[] = [];
 
   comments(story: any) {
     // if (Ionic.isServer) return;
 
-    /*Ionic.controller('loading', { content: 'fetching comments...' }).then(loading => {
-      loading.present();
-
-      fakeFetch(`${this.apiRootUrl}/item/${story.id}`).then((data: any) => {
-        setTimeout(() => {
+    /*setTimeout(() => {
           loading.dismiss().then(() => {
             Ionic.controller('modal', { component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then(modal => {
               console.log('modal created');
@@ -29,10 +27,23 @@ export class NewsList {
               });
             });
           });
-        }, 300);
-      });
+        }, 300);*/
 
-    });*/
+    this.loadingCtrl.create({ content: 'fetching comments...' }).then(loading => {
+      loading.present().then(() => {
+        fetch(`${this.apiRootUrl}/item/${story.id}`).then((response: any) => {
+          return response.json()
+        }).then((data) => {
+          loading.dismiss().then(() => {
+            this.modalCtrl.create({ component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then((modal => {
+              modal.present().then(() => {
+                console.log('modal finished transitioning in, commments: ', modal.componentProps.comments);
+              })
+            }))
+          })
+        })
+      })
+    });
   }
 
   render() {
