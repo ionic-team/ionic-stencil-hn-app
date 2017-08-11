@@ -1,5 +1,5 @@
 {
-  "name": "@stencil/starter",
+  "name": "@stencil/hn-app",
   "private": true,
   "version": "0.0.1",
   "description": "Stencil Starter App",
@@ -15,17 +15,17 @@
     "url": "git+https://github.com/ionic-team/stencil-starter.git"
   },
   "dependencies": {
-    "@ionic/core": "0.0.2-4",
-    "@stencil/core": "0.0.4-13"
+    "@ionic/core": "^0.0.2-4",
+    "@stencil/core": "^0.0.4-13"
+  },
+  "devDependencies": {
+    "@stencil/dev-server": "^0.0.14",
+    "@stencil/utils": "^0.0.4"
   },
   "author": "Ionic Team",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ionic-team/stencil"
   },
-  "homepage": "https://github.com/ionic-team/stencil",
-  "devDependencies": {
-    "@stencil/dev-server": "0.0.12",
-    "@stencil/utils": "0.0.3"
-  }
+  "homepage": "https://github.com/ionic-team/stencil"
 }
