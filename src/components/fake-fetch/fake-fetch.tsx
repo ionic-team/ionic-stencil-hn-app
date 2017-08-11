@@ -7,7 +7,6 @@ export class FakeFetch {
 
   @Method()
   fetch(url: string): Promise<any[]> {
-    console.log(url);
     return new Promise((resolve, reject) => {
       const request = new XMLHttpRequest();
 

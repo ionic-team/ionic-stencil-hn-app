@@ -40,7 +40,6 @@ export class NewsContainer {
   }
 
   render() {
-    console.log('rendering');
 
     return [
       <ion-header mdHeight='56px' iosHeight='61px'>

@@ -16,19 +16,6 @@ export class NewsList {
 
   comments(story: any) {
     // if (Ionic.isServer) return;
-
-    /*setTimeout(() => {
-          loading.dismiss().then(() => {
-            Ionic.controller('modal', { component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then(modal => {
-              console.log('modal created');
-
-              modal.present().then(() => {
-                console.log('modal finished transitioning in, commments: ', modal.componentProps.comments);
-              });
-            });
-          });
-        }, 300);*/
-
     this.loadingCtrl.create({ content: 'fetching comments...' }).then(loading => {
       loading.present().then(() => {
         fetch(`${this.apiRootUrl}/item/${story.id}`).then((response: any) => {
