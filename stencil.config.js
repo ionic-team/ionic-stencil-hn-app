@@ -1,6 +1,6 @@
 exports.config = {
   bundles: [
-    { components: ['news-list', 'news-container', 'comments-page', 'comments-list', 'fake-fetch'] }
+    { components: ['news-list', 'news-container', 'comments-page', 'comments-list'] }
   ],
   collections: [
     { name: '@ionic/core' }

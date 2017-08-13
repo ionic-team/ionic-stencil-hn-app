@@ -16,17 +16,20 @@ export class NewsContainer {
   ionViewDidLoad() {
     // call to firebase function for first view
     // this is only for production
-    const fakeFetch: any = this.el.querySelector('fake-fetch');
-
     this.page = 1;
     this.pageType = 'news';
 
-    fakeFetch.fetch('/hn').then((data) => {
-      this.stories = data;
-    }).catch((err) => {
-      console.error('Could not load cached data', err);
-    })
-    // this.getStories('news');
+    // fetch('/hn').then(rsp => {
+    //   return rsp.json();
+
+    // }).then(data => {
+    //   this.stories = data;
+
+    // }).catch((err) => {
+    //   console.error('Could not load cached data', err);
+    // });
+
+    this.getStories(this.pageType);
   }
 
 
@@ -34,10 +37,12 @@ export class NewsContainer {
     this.page = pageNum;
     this.pageType = type;
 
-    const fakeFetch: any = this.el.querySelector('fake-fetch');
+    fetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then(rsp => {
+      return rsp.json();
 
-    fakeFetch.fetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
+    }).then(data => {
       this.stories = data;
+
     }).catch((err) => {
       console.error('Could not load data', err);
     });
@@ -128,9 +133,7 @@ export class NewsContainer {
               </ion-button>
           </ion-buttons>
         </ion-toolbar>
-      </ion-footer>,
-
-      <fake-fetch></fake-fetch>
+      </ion-footer>
     ];
   }
 }
