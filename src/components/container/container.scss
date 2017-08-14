@@ -1,0 +1,49 @@
+news-container {
+  ion-toolbar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tabs-bar {
+    order: 2;
+  }
+
+  ion-buttons {
+    order: 1 !important;
+
+    height: 32px;
+    width: 32px;
+    margin-right: 29px;
+    padding-left: 11px;
+  }
+
+  ion-icon {
+    fill: white;
+  }
+
+  ion-icon svg {
+    width: 2.5em;
+    height: 2em;  
+  }
+
+  .page-number {
+    line-height: 3;
+    text-transform: uppercase;
+    font-size: 92%;
+  }
+
+  ion-footer ion-toolbar div.toolbar-background {
+    background: white;
+  }
+
+  ion-footer {
+    height: 48px;
+  }
+
+  ion-footer ion-toolbar {
+    min-height: 48px !important;
+  }
+}
+
+
+
