@@ -43,6 +43,40 @@ news-container {
   ion-footer ion-toolbar {
     min-height: 48px !important;
   }
+
+  .header-button {
+    opacity: 0.6;
+    width: 7rem;
+  }
+
+  .header-button-selected .header-button {
+    opacity: 1 !important;
+  }
+
+  .header-button-selected button {
+    font-weight: bold !important;
+  }
+
+  .tabs-bar {
+    display: flex;
+  }
+
+  .no-back button {
+    opacity: 0.3;
+  }
+
+  .yes-back button {
+    opacity: 1;
+    color: #327eff !important;
+  }
+
+  .bar-buttons button {
+    font-weight: 600;
+  }
+
+  .pager {
+    text-align: center;
+  }
 }
 
 

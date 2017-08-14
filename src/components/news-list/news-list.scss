@@ -1,0 +1,37 @@
+news-list {
+  ion-list .item-inner {
+    padding-bottom: 10px;
+    padding-top: 7px;
+    border-bottom-color: #e4e7ec !important;
+  }
+
+  .points {
+    color: #327eff;
+    font-weight: bold;
+    width: 55px;
+    padding-left: 10px;
+  }
+
+  .comments-text {
+    color: #717883;
+    cursor: pointer;
+  }
+
+  .list-header a {
+    color: #202939;
+    text-decoration: none;
+  }
+
+  .item-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .comments-title {
+    line-height: 2.1;
+  }
+
+  ion-label {
+    white-space: normal !important;
+  }
+}
