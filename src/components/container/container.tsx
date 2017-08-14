@@ -1,4 +1,4 @@
-import { Component, State, Element } from '@stencil/core';
+import { Component, Prop, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'news-container',
@@ -11,18 +11,26 @@ export class NewsContainer {
   pageType: string;
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
+  @Prop({ context: 'isServer'}) private isServer: boolean;
+
   @State() stories: any;
 
   ionViewDidLoad() {
+    if (this.isServer) {
+      return;
+    }
     // call to firebase function for first view
     // this is only for production
     this.page = 1;
     this.pageType = 'news';
 
-    this.firstFetch('/hn/').then((data) => {
+    /*this.firstFetch('/hn/').then((data) => {
       console.log(data);
       this.stories = data;
-    });
+    });*/
+    this.firstFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
+      this.stories = data;
+    })
   }
 
   firstFetch(url: string) {
