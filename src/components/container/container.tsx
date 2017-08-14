@@ -11,7 +11,7 @@ export class NewsContainer {
   pageType: string;
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
-  @State() stories: any[];
+  @State() stories: any;
 
   ionViewDidLoad() {
     // call to firebase function for first view
@@ -19,17 +19,26 @@ export class NewsContainer {
     this.page = 1;
     this.pageType = 'news';
 
-    // fetch('/hn').then(rsp => {
-    //   return rsp.json();
+    this.firstFetch('/hn/').then((data) => {
+      console.log(data);
+      this.stories = data;
+    });
+  }
 
-    // }).then(data => {
-    //   this.stories = data;
+  firstFetch(url: string) {
+    // This method can be removed once
+    // this issue https://bugs.chromium.org/p/chromium/issues/detail?id=652228
+    // has been fixed and deployed to stable chrome
 
-    // }).catch((err) => {
-    //   console.error('Could not load cached data', err);
-    // });
-
-    this.getStories(this.pageType);
+    return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.onerror = reject;
+    request.onload = () => resolve(
+      JSON.parse(request.responseText)
+    )
+    request.open('get', url);
+    request.send();
+  })
   }
 
 
