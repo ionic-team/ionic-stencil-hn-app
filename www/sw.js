@@ -19,11 +19,7 @@ importScripts('workbox-sw.prod.v1.1.0.js');
  */
 const fileManifest = [
   {
-    "url": "build/app.global.js",
-    "revision": "12fd254b4d3a6975cf831a688df6749f"
-  },
-  {
-    "url": "build/app\\app.3by1sobt.js",
+    "url": "build/app\\app.gyjwmnyv.js",
     "revision": "5be8edb07fd6a6c847f98f4577b02c1e"
   },
   {
@@ -42,33 +38,10 @@ const fileManifest = [
     "url": "index.html",
     "revision": "9ec2bc1e3de12c77dba155c12dfef3r9"
   },
-  {
-    "url": "build/app\\meocjb4n.js",
-    "revision": "a40322a637ba4312c7efaf997189c5c2"
-  },
-  {
-    "url": "build/app\\l6tawixo.css",
-    "revision": "9ec2bc1e3de12c77dba155c12dfef9g6"
-  },
-  {
-    "url": "build/app\\0mcfbxrx.js",
-    "revision": "12fd254b4f3a6975cf831a688df6749f"
-  },
-  {
-    "url": "build/app\\70p7wwvl.css",
-    "revision": "12fd254b4f3a6975cf831a688df6738n"
-  },
-  {
-    "url": "build/app\\eq1m6oz1.js",
-    "revision": "9ec2bc1e3de12c77dba155c12dfef9a7"
-  },
+
   {
     "url": "build/app\\mgekeaoe.css",
     "revision": "5be8edb07fd6a6c847f98a3577b02c1e"
-  },
-  {
-    "url": "build/app\\cbucl6ir.css",
-    "revision": "9ec1zc1e3de12c77dba155c12dfef9a7"
   },
   {
     "url": "build/app\\uwyzpx1k.js",

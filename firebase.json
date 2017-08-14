@@ -16,7 +16,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</build/app.global.js>;rel=preload;as=script,</build/app/app.3by1sobt.js>;rel=preload;as=script,</build/app/meocjb4n.js>;rel=preload;as=script,</build/app/l6tawixo.css>;rel=preload;as=style,</build/app/0mcfbxrx.js>;rel=preload;as=script,</build/app/70p7wwvl.css>;rel=preload;as=style,</build/app/eq1m6oz1.js>;rel=preload;as=script,</build/app/mgekeaoe.css>;rel=preload;as=style,</build/app/cbucl6ir.css>;rel=preload;as=style,</build/app/uwyzpx1k.js>;rel=preload;as=script,</build/app/b0b17nlp.js>;rel=preload;as=script,</hn>;rel=preload"
+            "value": "</build/app/app.gyjwmnyv.js>;rel=preload;as=script,</build/app/rg5tnl0f.js>;rel=preload;as=script,</build/app/70p7wwvl.css>;rel=preload;as=style,</build/app/bvpu2pwa.js>;rel=preload;as=script,</build/app/mgekeaoe.css>;rel=preload;as=style,</build/app/tsivetr7.css>;rel=preload;as=style,</build/app/uwyzpx1k.js>;rel=preload;as=script,</build/app/rrzctzt2.js>;rel=preload;as=script,</build/app/b0b17nlp.js>;rel=preload;as=script,</build/app/mz9ulgti.css>;rel=preload;as=style,</hn>;rel=preload"
           }
         ]
       }

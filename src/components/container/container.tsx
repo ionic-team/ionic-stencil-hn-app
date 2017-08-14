@@ -24,10 +24,12 @@ export class NewsContainer {
     this.page = 1;
     this.pageType = 'news';
 
-    /*this.firstFetch('/hn/').then((data) => {
+    // un-comment for prod
+    /*this.firstFetch('/hn').then((data) => {
       console.log(data);
       this.stories = data;
     });*/
+
     this.firstFetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then((data) => {
       this.stories = data;
     })
