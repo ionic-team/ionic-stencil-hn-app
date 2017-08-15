@@ -81,7 +81,7 @@ export class NewsContainer {
         <ion-toolbar color='primary'>
 
           <ion-buttons slot='left'>
-            <ion-icon name='ionic'></ion-icon>
+            <ion-icon mode='md' name='ionic'></ion-icon>
           </ion-buttons>
 
           <div class='tabs-bar'>
