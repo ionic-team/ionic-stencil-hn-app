@@ -11,9 +11,9 @@ export class CommentsPage {
 
   close(ev) {
     console.log('close');
-     // this.modalDismiss.emit('ionDismiss');
-     var event = new CustomEvent('ionDismiss', { bubbles: true });
-     ev.target.dispatchEvent(event);
+    // this.modalDismiss.emit('ionDismiss');
+    var event = new CustomEvent('ionDismiss', { bubbles: true });
+    ev.target.dispatchEvent(event);
   }
 
   render() {
@@ -21,9 +21,11 @@ export class CommentsPage {
       return [
         <ion-header>
           <ion-toolbar color='primary'>
-            <ion-button class='close-button' clear slot='start' on-click={() => this.close(event)}>
-              <ion-icon slot='icon-only' name='close' style={{ fill: 'white' }} />
-            </ion-button>
+            <ion-buttons slot='end'>
+              <ion-button class='close-button' clear on-click={() => this.close(event)}>
+                <ion-icon slot='icon-only' name='close' style={{ fill: 'white' }} />
+              </ion-button>
+            </ion-buttons>
             <ion-title class='comments-title' slot='end'>
               Comments
           </ion-title>
