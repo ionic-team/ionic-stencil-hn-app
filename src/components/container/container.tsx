@@ -54,18 +54,23 @@ export class NewsContainer {
 
   getStories(type: string, pageNum: number = 1) {
     if (pageNum >= 1) {
-      this.page = pageNum;
-      this.pageType = type;
+      if (type === 'news' && pageNum <= 10) {
+        this.pageType = type;
 
-      fetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then(rsp => {
-        return rsp.json();
+        fetch(`${this.apiRootUrl}/${this.pageType}?page=${pageNum}`).then(rsp => {
+          return rsp.json();
 
-      }).then(data => {
-        this.stories = data;
+        }).then(data => {
+          if (data.length !== 0) {
+            this.page = pageNum;
+            this.stories = data;
+            console.log(data);
+          }
 
-      }).catch((err) => {
-        console.error('Could not load data', err);
-      });
+        }).catch((err) => {
+          console.error('Could not load data', err);
+        });
+      }
     }
   }
 
