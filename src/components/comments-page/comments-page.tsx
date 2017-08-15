@@ -17,25 +17,23 @@ export class CommentsPage {
   }
 
   render() {
-    if (this.comments) {
-      return [
-        <ion-header>
-          <ion-toolbar color='primary'>
-            <ion-buttons slot='end'>
-              <ion-button class='close-button' clear on-click={() => this.close(event)}>
-                <ion-icon slot='icon-only' name='close' style={{ fill: 'white' }} />
-              </ion-button>
-            </ion-buttons>
-            <ion-title class='comments-title' slot='end'>
-              Comments
+    return [
+      <ion-header>
+        <ion-toolbar color='primary'>
+          <ion-buttons slot='end'>
+            <ion-button class='close-button' clear on-click={() => this.close(event)}>
+              <ion-icon slot='icon-only' name='close' style={{ fill: 'white' }} />
+            </ion-button>
+          </ion-buttons>
+          <ion-title class='comments-title' slot='end'>
+            Comments
           </ion-title>
-          </ion-toolbar>
-        </ion-header>,
+        </ion-toolbar>
+      </ion-header>,
 
-        <ion-content>
-          <comments-list commentList={this.comments}></comments-list>
-        </ion-content>
-      ];
-    }
+      <ion-content>
+        <comments-list commentList={this.comments}></comments-list>
+      </ion-content>
+    ];
   }
 }
