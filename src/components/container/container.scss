@@ -16,7 +16,11 @@ news-container {
   }
 
   ion-header ion-toolbar.toolbar-ios {
-    min-height: 55px;
+    min-height: 56px;
+  }
+
+  ion-scroll.content-ios {
+    margin-top: 51px !important;
   }
 
   .tabs-bar {
