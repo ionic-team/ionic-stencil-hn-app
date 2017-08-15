@@ -11,7 +11,7 @@ export class NewsContainer {
   pageType: string;
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
-  @Prop({ context: 'isServer'}) private isServer: boolean;
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   @State() stories: any;
 
@@ -41,30 +41,32 @@ export class NewsContainer {
     // has been fixed and deployed to stable chrome
 
     return new Promise((resolve, reject) => {
-    const request = new XMLHttpRequest();
-    request.onerror = reject;
-    request.onload = () => resolve(
-      JSON.parse(request.responseText)
-    )
-    request.open('get', url);
-    request.send();
-  })
+      const request = new XMLHttpRequest();
+      request.onerror = reject;
+      request.onload = () => resolve(
+        JSON.parse(request.responseText)
+      )
+      request.open('get', url);
+      request.send();
+    })
   }
 
 
   getStories(type: string, pageNum: number = 1) {
-    this.page = pageNum;
-    this.pageType = type;
+    if (pageNum >= 1) {
+      this.page = pageNum;
+      this.pageType = type;
 
-    fetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then(rsp => {
-      return rsp.json();
+      fetch(`${this.apiRootUrl}/${this.pageType}?page=${this.page}`).then(rsp => {
+        return rsp.json();
 
-    }).then(data => {
-      this.stories = data;
+      }).then(data => {
+        this.stories = data;
 
-    }).catch((err) => {
-      console.error('Could not load data', err);
-    });
+      }).catch((err) => {
+        console.error('Could not load data', err);
+      });
+    }
   }
 
   render() {
@@ -134,6 +136,7 @@ export class NewsContainer {
             <ion-button
               class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}
               clear={true}
+              disabled={this.page === 1}
               onclick={() => this.getStories(this.pageType, this.page - 1)}
             >
               prev
