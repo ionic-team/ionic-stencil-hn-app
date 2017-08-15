@@ -2,7 +2,8 @@ import { Component, Prop, State } from '@stencil/core';
 import { LoadingController, ModalController } from '@ionic/core';
 
 @Component({
-  tag: 'news-list'
+  tag: 'news-list',
+  styleUrl: 'news-list.scss'
 })
 export class NewsList {
 

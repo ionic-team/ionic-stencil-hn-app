@@ -1,7 +1,8 @@
 import { Component, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
-  tag: 'comments-page'
+  tag: 'comments-page',
+  styleUrl: 'comments-page.scss'
 })
 export class CommentsPage {
 

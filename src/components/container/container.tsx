@@ -2,7 +2,7 @@ import { Component, Prop, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'news-container',
-  styleUrl: '../main.scss'
+  styleUrl: 'container.scss'
 })
 export class NewsContainer {
 

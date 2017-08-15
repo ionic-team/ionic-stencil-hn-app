@@ -1,7 +1,8 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'comments-list'
+  tag: 'comments-list',
+  styleUrl: 'comments-list.scss'
 })
 export class CommentsList {
 

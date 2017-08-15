@@ -8,9 +8,8 @@ news-container {
     order: 2;
   }
 
-  ion-buttons {
+  ion-header ion-buttons {
     order: 1 !important;
-
     height: 32px;
     width: 32px;
     margin-right: 29px;
@@ -49,12 +48,20 @@ news-container {
     width: 7rem;
   }
 
-  .header-button-selected .header-button {
+  .header-button-selected.header-button .header-button {
+    opacity: 1 !important;
+  }
+
+  .header-button-selected.header-button {
     opacity: 1 !important;
   }
 
   .header-button-selected button {
     font-weight: bold !important;
+  }
+
+  ion-toolbar ion-button.header-button button {
+    color: white !important;
   }
 
   .tabs-bar {
