@@ -1,4 +1,15 @@
 news-container {
+
+  // these styles can be removed once
+  // this is fixed https://github.com/ionic-team/stencil/issues/91
+  ion-header.header-md.header-ios::after {
+    background-image: none;
+  }
+
+  ion-footer.footer-md.footer-ios::before {
+    background-image: none;
+  }
+
   ion-toolbar {
     display: flex;
     flex-direction: row;
