@@ -13,8 +13,13 @@ news-list {
   }
 
   .comments-text {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
     color: #717883;
-    cursor: pointer;
+    text-align: start;
   }
 
   .list-header a {

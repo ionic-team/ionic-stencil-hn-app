@@ -46,9 +46,9 @@ export class NewsList {
               <h2 class='list-header'>
                 <a href={story.url}>{story.title}</a>
               </h2>
-              <h3 class='comments-text' onClick={() => this.comments(story)}>
+              <button class='comments-text' role='button' onClick={() => this.comments(story)}>
                 Posted by {story.user} {story.time_ago} | {story.comments_count} comments
-            </h3>
+              </button>
             </ion-label>
           </ion-item>
         )
