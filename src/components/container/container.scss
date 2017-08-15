@@ -15,6 +15,10 @@ news-container {
     flex-direction: row;
   }
 
+  ion-header ion-toolbar.toolbar-ios {
+    min-height: 55px;
+  }
+
   .tabs-bar {
     order: 2;
   }
