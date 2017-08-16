@@ -10,8 +10,8 @@ export class NewsList {
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
   @Prop() storyList: any[];
-  @Prop({ connect: 'ion-loading-ctrl' }) loadingCtrl: LoadingController;
-  @Prop({ connect: 'ion-modal-ctrl' }) modalCtrl: ModalController;
+  @Prop({ connect: 'ion-loading-controller' }) loadingCtrl: LoadingController;
+  @Prop({ connect: 'ion-modal-controller' }) modalCtrl: ModalController;
 
   @State() fakeData: any[] = [];
 
