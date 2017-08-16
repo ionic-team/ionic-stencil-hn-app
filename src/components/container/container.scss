@@ -9,6 +9,11 @@ news-container {
   ion-footer.footer-md.footer-ios::before {
     background-image: none;
   }
+  ////////////////////////////////
+
+  ion-footer ion-button button {
+    text-transform: uppercase !important;
+  }
 
   ion-toolbar {
     display: flex;
@@ -17,6 +22,10 @@ news-container {
 
   ion-header ion-toolbar.toolbar-ios {
     min-height: 56px;
+  }
+
+  ion-header .bar-buttons.bar-buttons-ios {
+    margin-right: 36px;
   }
 
   ion-scroll.content-ios {
