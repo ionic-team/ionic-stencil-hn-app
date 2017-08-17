@@ -32,7 +32,7 @@ export class CommentsPage {
       </ion-header>,
 
       <ion-content>
-        <comments-list commentList={this.comments}></comments-list>
+        {this.comments.length > 0 ? <comments-list commentList={this.comments}></comments-list> : <h1 id='no-comments'>No comments</h1>}
       </ion-content>
     ];
   }
