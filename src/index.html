@@ -32,8 +32,6 @@
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#488aff">  
 
-  <link rel='prefetch' href='build/app/zzkays59.js'>
-
   <script src="build/app.js"></script>
 </head>
 
@@ -45,11 +43,29 @@
 
   <script>
     /*if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      });
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then((reg) => {
+              reg.onupdatefound = () => {
+                const installingWorker = reg.installing;
+
+                installingWorker.onstatechange = () => {
+                  switch (installingWorker.state) {
+                    case 'installed':
+                      if (navigator.serviceWorker.controller) {
+                        alert('New or updated content is available, please refresh');
+                      }
+                      break;
+
+                    case 'redundant':
+                      console.error('The installing service worker became redundant.');
+                      break;
+                  }
+                }
+              }
+            })
+            .catch(err => console.log('Error', err));
+        });
     }*/
   </script>
 
