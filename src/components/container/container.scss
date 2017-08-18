@@ -46,13 +46,10 @@ news-container {
     padding-left: 11px;
   }
 
-  ion-icon {
+  ion-header svg {
+    width: 3em;
+    height: 2.5em;
     fill: white;
-  }
-
-  ion-icon svg {
-    width: 2.5em;
-    height: 2em;  
   }
 
   .page-number {
