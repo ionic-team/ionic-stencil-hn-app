@@ -1,4 +1,4 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 import { LoadingController, ModalController } from '@ionic/core';
 
 @Component({
@@ -13,10 +13,7 @@ export class NewsList {
   @Prop({ connect: 'ion-loading-controller' }) loadingCtrl: LoadingController;
   @Prop({ connect: 'ion-modal-controller' }) modalCtrl: ModalController;
 
-  @State() fakeData: any[] = [];
-
   comments(story: any) {
-    // if (Ionic.isServer) return;
     this.loadingCtrl.create({ content: 'fetching comments...' }).then(loading => {
       loading.present().then(() => {
         fetch(`${this.apiRootUrl}/item/${story.id}`).then((response: any) => {

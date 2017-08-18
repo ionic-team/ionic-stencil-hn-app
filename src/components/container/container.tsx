@@ -15,7 +15,7 @@ export class NewsContainer {
 
   @State() stories: any;
 
-  ionViewDidLoad() {
+  ionViewWillLoad() {
     if (this.isServer) {
       return;
     }
