@@ -19,13 +19,13 @@ export class NewsList {
         fetch(`${this.apiRootUrl}/item/${story.id}`).then((response: any) => {
           return response.json()
         }).then((data) => {
-          loading.dismiss().then(() => {
-            this.modalCtrl.create({ component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then((modal => {
+          this.modalCtrl.create({ component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then((modal => {
+            loading.dismiss().then(() => {
               modal.present().then(() => {
                 console.log('modal finished transitioning in, commments: ', modal.componentProps.comments);
               })
-            }))
-          })
+            })
+          }))
         })
       })
     });
