@@ -7,13 +7,10 @@ import { Component, Prop, Event, EventEmitter } from '@stencil/core';
 export class CommentsPage {
 
   @Prop() comments: any[];
-  @Event() modalDismiss: EventEmitter;
+  @Event() ionDismiss: EventEmitter;
 
-  close(ev) {
-    console.log('close');
-    // this.modalDismiss.emit('ionDismiss');
-    var event = new CustomEvent('ionDismiss', { bubbles: true });
-    ev.target.dispatchEvent(event);
+  close() {
+    this.ionDismiss.emit();
   }
 
   render() {
@@ -21,7 +18,7 @@ export class CommentsPage {
       <ion-header>
         <ion-toolbar color='primary'>
           <ion-buttons slot='end'>
-            <ion-button class='close-button' clear on-click={() => this.close(event)}>
+            <ion-button class='close-button' clear onClick={() => this.close()}>
               <ion-icon slot='icon-only' name='close' style={{ fill: 'white' }} />
             </ion-button>
           </ion-buttons>
