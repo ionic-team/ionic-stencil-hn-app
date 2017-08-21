@@ -26,7 +26,6 @@ export class NewsContainer {
 
     // un-comment for prod
     /*this.firstFetch('/hn').then((data) => {
-      console.log(data);
       this.stories = data;
     });*/
 
@@ -67,7 +66,6 @@ export class NewsContainer {
         if (data.length !== 0) {
           this.page = pageNum;
           this.stories = data;
-          console.log(data);
         }
 
       }).catch((err) => {

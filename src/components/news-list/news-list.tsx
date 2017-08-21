@@ -21,9 +21,7 @@ export class NewsList {
         }).then((data) => {
           this.modalCtrl.create({ component: 'comments-page', componentProps: { comments: data.comments, storyId: story.id } }).then((modal => {
             loading.dismiss().then(() => {
-              modal.present().then(() => {
-                console.log('modal finished transitioning in, commments: ', modal.componentProps.comments);
-              })
+              modal.present();
             })
           }))
         })
