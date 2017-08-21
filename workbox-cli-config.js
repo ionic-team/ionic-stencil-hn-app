@@ -2,7 +2,7 @@ module.exports = {
   "skipWaiting": true,
   "globDirectory": "www/",
   "globPatterns": [
-    "**/*.{css,js,svg,json,ico,png,html}"
+    "**/*.{css,js,json,ico,png,html}"
   ],
   "swDest": "www/sw.js",
   "globIgnores": [
