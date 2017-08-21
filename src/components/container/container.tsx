@@ -19,15 +19,9 @@ export class NewsContainer {
     if (this.isServer) {
       return;
     }
-    // call to firebase function for first view
-    // this is only for production
+
     this.page = 1;
     this.pageType = 'news';
-
-    // un-comment for prod
-    /*this.firstFetch('/hn').then((data) => {
-      this.stories = data;
-    });*/
 
     this.firstFetch('data.json').then((data) => {
       this.stories = data;
