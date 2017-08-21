@@ -1,6 +1,6 @@
 # Ionic-Stencil HN app
 
-Stencil is a compiler for building fast web apps using Web Components.
+[Stencil](https://github.com/ionic-team/stencil) is a compiler for building fast web apps and components using Web Components.
 
 Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
@@ -8,7 +8,9 @@ Stencil components are just Web Components, so they work in any major framework 
 
 Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
 
-This PWA is a Hacker News demo PWA built with Stencil and our Ionic core components that are also built with Stencil.
+This PWA is a Hacker News demo built with Stencil and our Ionic core components that are also built with Stencil.
+
+Want to try it live? Check it out [here](https://corehacker-10883.firebaseapp.com/).
 
 ## Performance
 We use WebPageTest to keep track of the loading performance of this demo on real, low end devices and an emerging markets 3G network. [Here](https://www.webpagetest.org/lighthouse.php?test=170623_YE_1C1R&run=2) is the latest lighthouse from our latest WebPageTest. This is with a Moto G with an emerging markets 3G network.
@@ -18,16 +20,16 @@ We use WebPageTest to keep track of the loading performance of this demo on real
 To start devving on this project, clone this repo and run:
 
 ```bash
-npm start
+npm install
 ```
 
-To view the build, start an HTTP server inside of the `/www` directory.
-
-To watch for file changes during develop, run:
+then run:
 
 ```bash
 npm run dev
 ```
+ to get a live reload server that watches for changes
+ 
 
 To build the app for production, run:
 
