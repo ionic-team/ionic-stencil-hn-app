@@ -110,6 +110,26 @@ news-container {
   .pager {
     text-align: center;
   }
+
+  @media(min-width: 1000px) {
+    ion-footer ion-buttons[slot=end] {
+      margin-right: 18em;
+    }
+
+    ion-footer ion-buttons[slot=start] {
+      margin-left: 18em;
+    }
+
+    ion-header ion-buttons[slot=left] {
+      margin-left: 18.3em;
+    }
+
+    ion-page {
+      padding-left: 18em;
+      padding-right: 18em;
+      background: #f3f3f3;
+    }
+  }
 }
 
 
