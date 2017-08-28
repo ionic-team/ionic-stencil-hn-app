@@ -1,4 +1,4 @@
-import { Component, Prop, State, Element } from '@stencil/core';
+import { Component, State, Element } from '@stencil/core';
 
 @Component({
   tag: 'news-container',
@@ -11,14 +11,9 @@ export class NewsContainer {
   pageType: string;
   apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
-  @Prop({ context: 'isServer' }) private isServer: boolean;
-
   @State() stories: any;
 
   ionViewWillLoad() {
-    if (this.isServer) {
-      return;
-    }
 
     this.page = 1;
     this.pageType = 'news';
