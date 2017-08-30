@@ -72,7 +72,7 @@ export class NewsContainer {
   render() {
 
     return (
-      <ion-page>
+      <ion-page class="show-page">
         <ion-header mdHeight='56px' iosHeight='61px'>
           <ion-toolbar color='primary'>
 

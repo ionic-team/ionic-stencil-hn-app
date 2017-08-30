@@ -10,7 +10,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@ionic/core": "0.0.2-8"
+    "@ionic/core": "0.0.2-10"
   },
   "devDependencies": {
     "@stencil/core": "0.0.5-7",
