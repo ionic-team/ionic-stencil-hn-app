@@ -1,7 +1,7 @@
 {
   "name": "IonicHacker",
   "short_name": "IonicHacker",
-  "start_url": "index.html",
+  "start_url": "/",
   "display": "standalone",
   "icons": [{
     "src": "assets/icon.png",
