@@ -24,9 +24,7 @@ export class NewsPage {
       return rsp.json();
 
     }).then(data => {
-      if (data.length !== 0) {
-        this.stories = data;
-      }
+      this.stories = data;
 
     }).catch((err) => {
       console.error('Could not load data', err);
@@ -39,12 +37,10 @@ export class NewsPage {
       loading.present().then(() => {
         fetch(`${this.apiRootUrl}/${this.type}.json?page=${this.pageNum}`).then(rsp => {
           return rsp.json();
-
         }).then(data => {
           if (data.length !== 0) {
             this.stories = data;
             loading.dismiss();
-            console.log(this.stories)
           }
 
         }).catch((err) => {
