@@ -45,7 +45,13 @@ export class jobsPage {
         <ion-footer>
           <ion-toolbar>
             <ion-buttons slot='start'>
-              <ion-button  onClick={() => this.back()} clear color='primary'>
+              <ion-button 
+                onClick={() => this.back()} 
+                clear 
+                color='primary'
+                disabled={this.page === 1}
+                class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}
+                >
                 Prev
               </ion-button>
             </ion-buttons>

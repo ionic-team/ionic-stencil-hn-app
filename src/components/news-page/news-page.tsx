@@ -40,7 +40,12 @@ export class NewsPage {
         <ion-footer>
           <ion-toolbar>
             <ion-buttons slot='start'>
-              <ion-button  onClick={() => this.back()} clear color='primary'>
+              <ion-button
+                onClick={() => this.back()}
+                clear
+                color='primary'
+                disabled={this.page === 1}
+                class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}>
                 Prev
               </ion-button>
             </ion-buttons>
@@ -48,7 +53,7 @@ export class NewsPage {
             <span class='page-number'>
               page {this.page}
             </span>
-            
+
             <ion-buttons slot='end'>
               <ion-button onClick={() => this.forward()} clear color='primary'>
                 Next

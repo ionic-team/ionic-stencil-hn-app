@@ -12,4 +12,13 @@ show-page {
   ion-footer .toolbar-content {
     text-align: center;
   }
+
+  .no-back button {
+    opacity: 0.3;
+  }
+
+  .yes-back button {
+    opacity: 1;
+    color: #327eff !important;
+  }
 }
