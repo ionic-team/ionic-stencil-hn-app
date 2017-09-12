@@ -29,10 +29,12 @@ export class jobsPage {
   }
 
   back() {
-    console.log('updating page');
-    this.page = this.page - 1;
-    console.log(this.page);
-    this.history.push(`/jobs/${this.page}`, {});
+    console.log('updating page', this.page);
+    if (this.page !== 1) {
+      this.page = this.page - 1;
+      console.log(this.page);
+      this.history.push(`/jobs/${this.page}`, {});
+    }
   }
 
   render() {
@@ -49,7 +51,6 @@ export class jobsPage {
                 onClick={() => this.back()} 
                 clear 
                 color='primary'
-                disabled={this.page === 1}
                 class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}
                 >
                 Prev

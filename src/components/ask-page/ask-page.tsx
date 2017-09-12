@@ -29,10 +29,12 @@ export class askPage {
   }
 
   back() {
-    console.log('updating page');
-    this.page = this.page - 1;
-    console.log(this.page);
-    this.history.push(`/ask/${this.page}`, {});
+    console.log('updating page', this.page);
+    if (this.page !== 1) {
+      this.page = this.page - 1;
+      console.log(this.page);
+      this.history.push(`/ask/${this.page}`, {});
+    }
   }
 
   render() {
@@ -49,8 +51,7 @@ export class askPage {
                 onClick={() => this.back()}
                 clear
                 color='primary'
-                disabled={this.page === 1}
-                class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}>>
+                class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}>
                 Prev
               </ion-button>
             </ion-buttons>
