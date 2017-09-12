@@ -1,15 +1,17 @@
 comments-page {
   .close-button ion-icon {
     color: white;
-    font-size: 2.3rem;
-  }
-
-  .close-button .icon-ios svg {
-    width: 1.4em;
-    height: 1.4em;
   }
 
   #no-comments {
     text-align: center;
+  }
+
+  ion-buttons[slot="end"] {
+    order: 6!important;
+  }
+
+  ion-buttons[slot="end"] button {
+    height: 1.8em;
   }
 }

@@ -1,0 +1,15 @@
+news-page {
+  ion-scroll {
+    margin-top: 55px;
+  }
+
+  .page-number {
+    line-height: 3;
+    text-transform: uppercase;
+    font-size: 92%;
+  }
+
+  ion-footer .toolbar-content {
+    text-align: center;
+  }
+}

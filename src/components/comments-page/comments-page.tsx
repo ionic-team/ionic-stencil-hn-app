@@ -1,4 +1,6 @@
-import { Component, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, State } from '@stencil/core';
+import { RouterHistory } from '@stencil/router';
+import { LoadingController } from '@ionic/core';
 
 @Component({
   tag: 'comments-page',
@@ -6,30 +8,51 @@ import { Component, Prop, Event, EventEmitter } from '@stencil/core';
 })
 export class CommentsPage {
 
-  @Prop() comments: any[];
-  @Event() ionDismiss: EventEmitter;
+  @Prop() match: any;
+  @Prop() history: RouterHistory;
+  @Prop({ connect: 'ion-loading-controller' }) loadingCtrl: LoadingController;
+
+  @State() comments: any[] = [];
+
+  apiRootUrl: string = 'https://hnpwa.com/api/v0';
+
+  componentDidLoad() {
+    this.loadingCtrl.create({ content: 'fetching comments...' }).then(loading => {
+      loading.present().then(() => {
+        fetch(`${this.apiRootUrl}/item/${this.match.params.id}.json`).then((response: any) => {
+          return response.json()
+        }).then((data) => {
+          this.comments = data.comments;
+
+          loading.dismiss();
+        });
+      })
+    });
+  }
 
   close() {
-    this.ionDismiss.emit();
+    console.log(this.history);
+    this.history.goBack();
   }
 
   render() {
     return [
       <ion-header>
         <ion-toolbar color='primary'>
+          <ion-title class='comments-title' slot='start'>
+            Comments
+          </ion-title>
+
           <ion-buttons slot='end'>
             <ion-button class='close-button' clear onClick={() => this.close()}>
               <ion-icon slot='icon-only' name='close' style={{ fill: 'white' }} />
             </ion-button>
           </ion-buttons>
-          <ion-title class='comments-title' slot='end'>
-            Comments
-          </ion-title>
         </ion-toolbar>
       </ion-header>,
 
       <ion-content>
-        {this.comments.length > 0 ? <comments-list commentList={this.comments}></comments-list> : <h1 id='no-comments'>No comments</h1>}
+        <comments-list commentList={this.comments}></comments-list>
       </ion-content>
     ];
   }

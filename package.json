@@ -1,19 +1,24 @@
 {
-  "name": "@stencil/ionic-hn-app",
+  "name": "@stencil/starter",
   "private": true,
   "version": "0.0.1",
-  "description": "Ionic Stencil HN App",
+  "description": "Stencil Starter App",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "devTest": "sd concurrent \"stencil build --dev --watch\" \"http-server www/\" "
   },
   "dependencies": {
-    "@ionic/core": "0.0.2-10"
+    "@ionic/core": "0.0.2-10",
+    "@stencil/core": "0.0.5-17",
+    "@stencil/router": "0.0.9"
   },
   "devDependencies": {
-    "@stencil/core": "0.0.5-7",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest"
   },
@@ -23,5 +28,8 @@
   },
   "author": "Ionic Team",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil"
+  },
   "homepage": "https://github.com/ionic-team/stencil"
 }

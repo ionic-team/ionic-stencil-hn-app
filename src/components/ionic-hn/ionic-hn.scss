@@ -1,0 +1,23 @@
+ionic-hn {
+  ion-header #ionic-icon {
+    width: 3em;
+    height: 2.5em;
+    fill: #fff;
+  }
+
+  .tabs-bar {
+    order: 2;
+  }
+
+  ion-header ion-buttons {
+    order: 1 !important;
+    height: 32px;
+    width: 32px;
+    margin-right: 29px;
+    padding-left: 11px;
+  }
+
+  ion-toolbar ion-button.header-button button {
+    color: white !important;
+  }
+}
