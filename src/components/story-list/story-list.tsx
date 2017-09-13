@@ -37,24 +37,26 @@ export class StoryList {
         </ion-list>
       )
     } else {
-      <ion-list>
-        {Array.from(Array(10)).map(() =>
-          <ion-item>
-            <div class='points' slot='start'>
-              <ion-skeleton-text width='20px'></ion-skeleton-text>
-            </div>
-            <ion-label>
-              <h2 class='list-header'>
-                <ion-skeleton-text width='90%'></ion-skeleton-text>
-                <ion-skeleton-text width='85%'></ion-skeleton-text>
-              </h2>
-              <h3 class='comments-text'>
-                <ion-skeleton-text width='60%'></ion-skeleton-text>
-              </h3>
-            </ion-label>
-          </ion-item>
-        )}
-      </ion-list>
+      return (
+        <ion-list>
+          {Array.from(Array(10)).map(() =>
+            <ion-item>
+              <div class='points' slot='start'>
+                <ion-skeleton-text width='20px'></ion-skeleton-text>
+              </div>
+              <ion-label>
+                <h2 class='list-header'>
+                  <ion-skeleton-text width='90%'></ion-skeleton-text>
+                  <ion-skeleton-text width='85%'></ion-skeleton-text>
+                </h2>
+                <h3 class='comments-text'>
+                  <ion-skeleton-text width='60%'></ion-skeleton-text>
+                </h3>
+              </ion-label>
+            </ion-item>
+          )}
+        </ion-list>
+      )
     }
   }
 }
