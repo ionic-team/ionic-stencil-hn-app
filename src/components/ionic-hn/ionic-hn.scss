@@ -9,6 +9,18 @@ ionic-hn {
     order: 2;
   }
 
+  ion-footer ion-toolbar div.toolbar-background {
+    background: white;
+  }
+
+  ion-footer {
+    height: 48px;
+  }
+
+  ion-footer ion-toolbar {
+    min-height: 48px !important;
+  }
+
   ion-header ion-buttons {
     order: 1 !important;
     height: 32px;
@@ -19,5 +31,42 @@ ionic-hn {
 
   ion-toolbar ion-button.header-button button {
     color: white !important;
+  }
+
+  a {
+    opacity: 1 !important;
+  }
+
+  .header-button {
+    opacity: 0.6;
+    width: 7rem;
+  }
+
+  .active .header-button {
+    opacity: 1 !important;
+  }
+
+  .active button {
+    font-weight: bold !important;
+  }
+
+  @media(min-width: 900px) {
+    ion-footer ion-buttons[slot=end] {
+      margin-right: 18em;
+    }
+
+    ion-footer ion-buttons[slot=start] {
+      margin-left: 18em;
+    }
+
+    ion-header ion-buttons[slot=start] {
+      margin-left: 18.3em;
+    }
+
+    ion-page {
+      padding-left: 18em;
+      padding-right: 18em;
+      background: #f3f3f3;
+    }
   }
 }
