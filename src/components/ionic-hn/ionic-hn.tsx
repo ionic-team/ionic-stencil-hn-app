@@ -17,7 +17,7 @@ export class IonicHn {
             </ion-buttons>
 
             <div class='tabs-bar'>
-              <stencil-route-link url='/news/1' activeClass='active' exact={true}>
+              <stencil-route-link url='/news/1' urlMatch={['/', '/news/:pageNum']} activeClass='active' exact={true}>
                 <ion-button
                   class={{
                     'header-button': true,
@@ -28,7 +28,7 @@ export class IonicHn {
                 </ion-button>
               </stencil-route-link>
 
-              <stencil-route-link url='/show/1' activeClass='active'>
+              <stencil-route-link url='/show/1' activeClass='active' >
                 <ion-button
                   class={{
                     'header-button': true,
@@ -62,11 +62,8 @@ export class IonicHn {
         </ion-header>
 
         <stencil-router id='router'>
-          <stencil-route url='/' component='news-page' exact={true}>
+          <stencil-route url={['/', '/news/:pageNum', '/news/:pageNum/']} component='news-page' exact={true}>
           </stencil-route>
-
-          <stencil-route url='/news/:pageNum' component='news-page'>
-          </stencil-route>,
 
           <stencil-route url='/show/:pageNum' component='show-page'>
           </stencil-route>

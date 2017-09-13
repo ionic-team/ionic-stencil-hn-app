@@ -11,12 +11,13 @@
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
-    "devTest": "sd concurrent \"stencil build --dev --watch\" \"http-server www/\" "
+    "devTest": "sd concurrent \"stencil build --dev --watch\" \"http-server www/\" ",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
     "@ionic/core": "0.0.2-10",
     "@stencil/core": "0.0.5-17",
-    "@stencil/router": "0.0.9"
+    "@stencil/router": "0.0.12"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
