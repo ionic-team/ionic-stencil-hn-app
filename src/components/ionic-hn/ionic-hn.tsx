@@ -17,7 +17,7 @@ export class IonicHn {
             </ion-buttons>
 
             <div class='tabs-bar'>
-              <stencil-route-link url='/news/1' urlMatch={['/', '/news/:pageNum']} activeClass='active' exact={true}>
+              <stencil-route-link url='/news/1' urlMatch={['/', '/news/:pageNum', '/news/:pageNum/']} activeClass='active' exact={true}>
                 <ion-button
                   class={{
                     'header-button': true,

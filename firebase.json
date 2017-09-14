@@ -1,6 +1,12 @@
 {
   "hosting": {
     "public": "www",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "headers": [
       {
         "source": "sw.js",
@@ -14,7 +20,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</build/app/app.ar1xu3nb.js>;rel=preload;as=script,</build/app/dsrelshu.js>;rel=preload;as=script,</build/app/mql1fbi8.css>;rel=preload;as=style,</build/app/bvpu2pwa.js>;rel=preload;as=script,</build/app/opqnadal.css>;rel=preload;as=style,</build/app/bxheg2s7.js>;rel=preload;as=script,</build/app/sqissqfq.css>;rel=preload;as=style,</build/app/b0b17nlp.js>;rel=preload;as=script,</build/app/hf43sfsm.js>;rel=preload;as=script,</build/app/qookyrji.css>;rel=preload;as=style,</build/app/chiv5gw6.js>;rel=preload;as=script,</build/app/8pfu6jif.css>;rel=preload;as=style,</build/app/taqqg0q6.js>;rel=preload;as=script,<https://hnpwa.com/api/v0/news.json?page=1>;rel=preload;as=fetch"
+            "value": "</build/app/app.ar1xu3nb.js>;rel=preload;as=script,</build/app/dsrelshu.js>;rel=preload;as=script,</build/app/mql1fbi8.css>;rel=preload;as=style,</build/app/bvpu2pwa.js>;rel=preload;as=script,</build/app/opqnadal.css>;rel=preload;as=style,</build/app/bxheg2s7.js>;rel=preload;as=script,</build/app/sqissqfq.css>;rel=preload;as=style,</build/app/b0b17nlp.js>;rel=preload;as=script,</build/app/2pf5t6jm.js>;rel=preload;as=script,</build/app/qookyrji.css>;rel=preload;as=style,</build/app/chiv5gw6.js>;rel=preload;as=script,</build/app/8pfu6jif.css>;rel=preload;as=style,</build/app/taqqg0q6.js>;rel=preload;as=script,<https://hnpwa.com/api/v0/news.json?page=1>;rel=preload;as=fetch"
           }
         ]
       }
