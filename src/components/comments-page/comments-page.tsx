@@ -14,7 +14,7 @@ export class CommentsPage {
 
   @State() comments: any[] = [];
 
-  apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
+  apiRootUrl: string = 'https://hnpwa.com/api/v0';
 
   componentWillLoad() {
     this.loadingCtrl.create({ content: 'fetching comments...' }).then(loading => {
