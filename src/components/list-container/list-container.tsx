@@ -14,13 +14,13 @@ export class NewsPage {
 
   @State() stories: any[];
 
-  apiRootUrl: string = 'https://hnpwa.com/api/v0';
+  apiRootUrl: string = 'https://node-hnapi.herokuapp.com';
 
   componentWillLoad() {
     // fetch without loading for the first run
     // so we dont pull in the loading controller 
     // for the first view
-    fetch(`${this.apiRootUrl}/${this.type}.json?page=${this.pageNum}`).then(rsp => {
+    fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
       return rsp.json();
 
     }).then(data => {
@@ -35,7 +35,7 @@ export class NewsPage {
   fetchNew() {
     this.loadingCtrl.create({ content: 'fetching articles...' }).then((loading) => {
       loading.present().then(() => {
-        fetch(`${this.apiRootUrl}/${this.type}.json?page=${this.pageNum}`).then(rsp => {
+        fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
           return rsp.json();
         }).then(data => {
           if (data.length !== 0) {
