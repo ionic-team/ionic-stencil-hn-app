@@ -1,6 +1,6 @@
 exports.config = {
   bundles: [
-    { components: ['ionic-hn', 'story-list', 'news-page'] },
+    { components: ['ionic-hn', 'story-list', 'news-page', 'app-routes'] },
     { components: ['show-page'] },
     { components: ['jobs-page'] },
     { components: ['ask-page'] },
@@ -20,4 +20,4 @@ exports.config = {
 exports.devServer = {
   root: 'www',
   watchGlob: '**/**'
-}
+};
