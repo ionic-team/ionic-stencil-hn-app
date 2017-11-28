@@ -1,8 +1,12 @@
 ionic-hn {
-  ion-header #ionic-icon {
-    width: 3em;
-    height: 2.5em;
+  ion-header ion-icon {
     fill: #fff;
+    margin-top: 5px;
+  }
+
+  ion-header ion-icon svg {
+    width: 4em;
+    height: 2.2em;
   }
 
   .tabs-bar {
@@ -19,14 +23,6 @@ ionic-hn {
 
   ion-footer ion-toolbar {
     min-height: 48px !important;
-  }
-
-  ion-header ion-buttons {
-    order: 1 !important;
-    height: 32px;
-    width: 32px;
-    margin-right: 29px;
-    padding-left: 11px;
   }
 
   ion-toolbar ion-button.header-button button {

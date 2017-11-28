@@ -14,6 +14,7 @@ export class NewsPage {
   @State() page: number;
 
   componentWillLoad() {
+    console.log('hello world');
     if (this.match.params.pageNum) {
       this.page = parseInt(this.match.params.pageNum);
     } else {

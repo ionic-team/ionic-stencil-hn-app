@@ -8,262 +8,290 @@ import '@stencil/router';
 
 import '@ionic/core';
 
-import { askPage as AskPage } from './components/ask-page/ask-page';
+import {
+  RouterHistory,
+} from '@stencil/router';
 
-interface HTMLAskPageElement extends AskPage, HTMLElement {
-}
-declare var HTMLAskPageElement: {
-  prototype: HTMLAskPageElement;
-  new (): HTMLAskPageElement;
-};
+import {
+  askPage as AskPage
+} from './components/ask-page/ask-page';
+
 declare global {
+  interface HTMLAskPageElement extends AskPage, HTMLElement {
+  }
+  var HTMLAskPageElement: {
+    prototype: HTMLAskPageElement;
+    new (): HTMLAskPageElement;
+  };
   interface HTMLElementTagNameMap {
-      "ask-page": HTMLAskPageElement;
+    "ask-page": HTMLAskPageElement;
   }
   interface ElementTagNameMap {
-      "ask-page": HTMLAskPageElement;
+    "ask-page": HTMLAskPageElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "ask-page": JSXElements.AskPageAttributes;
-      }
+    interface IntrinsicElements {
+      "ask-page": JSXElements.AskPageAttributes;
+    }
   }
   namespace JSXElements {
-      export interface AskPageAttributes extends HTMLAttributes {
-        
-          match?: any,
-          history?: any
-      }
+    export interface AskPageAttributes extends HTMLAttributes {
+      
+        match?: any,
+        history?: RouterHistory
+    }
   }
 }
 
-import { CommentsList as CommentsList } from './components/comments-list/comments-list';
 
-interface HTMLCommentsListElement extends CommentsList, HTMLElement {
-}
-declare var HTMLCommentsListElement: {
-  prototype: HTMLCommentsListElement;
-  new (): HTMLCommentsListElement;
-};
+import {
+  CommentsList as CommentsList
+} from './components/comments-list/comments-list';
+
 declare global {
+  interface HTMLCommentsListElement extends CommentsList, HTMLElement {
+  }
+  var HTMLCommentsListElement: {
+    prototype: HTMLCommentsListElement;
+    new (): HTMLCommentsListElement;
+  };
   interface HTMLElementTagNameMap {
-      "comments-list": HTMLCommentsListElement;
+    "comments-list": HTMLCommentsListElement;
   }
   interface ElementTagNameMap {
-      "comments-list": HTMLCommentsListElement;
+    "comments-list": HTMLCommentsListElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "comments-list": JSXElements.CommentsListAttributes;
-      }
+    interface IntrinsicElements {
+      "comments-list": JSXElements.CommentsListAttributes;
+    }
   }
   namespace JSXElements {
-      export interface CommentsListAttributes extends HTMLAttributes {
-        
-          commentList?: any
-      }
+    export interface CommentsListAttributes extends HTMLAttributes {
+      
+        commentList?: any
+    }
   }
 }
 
-import { CommentsPage as CommentsPage } from './components/comments-page/comments-page';
 
-interface HTMLCommentsPageElement extends CommentsPage, HTMLElement {
-}
-declare var HTMLCommentsPageElement: {
-  prototype: HTMLCommentsPageElement;
-  new (): HTMLCommentsPageElement;
-};
+import {
+  CommentsPage as CommentsPage
+} from './components/comments-page/comments-page';
+
 declare global {
+  interface HTMLCommentsPageElement extends CommentsPage, HTMLElement {
+  }
+  var HTMLCommentsPageElement: {
+    prototype: HTMLCommentsPageElement;
+    new (): HTMLCommentsPageElement;
+  };
   interface HTMLElementTagNameMap {
-      "comments-page": HTMLCommentsPageElement;
+    "comments-page": HTMLCommentsPageElement;
   }
   interface ElementTagNameMap {
-      "comments-page": HTMLCommentsPageElement;
+    "comments-page": HTMLCommentsPageElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "comments-page": JSXElements.CommentsPageAttributes;
-      }
+    interface IntrinsicElements {
+      "comments-page": JSXElements.CommentsPageAttributes;
+    }
   }
   namespace JSXElements {
-      export interface CommentsPageAttributes extends HTMLAttributes {
-        
-          match?: any,
-          history?: any,
-          loadingCtrl?: any
-      }
+    export interface CommentsPageAttributes extends HTMLAttributes {
+      
+        match?: any,
+        history?: RouterHistory
+    }
   }
 }
 
-import { IonicHn as IonicHn } from './components/ionic-hn/ionic-hn';
 
-interface HTMLIonicHnElement extends IonicHn, HTMLElement {
-}
-declare var HTMLIonicHnElement: {
-  prototype: HTMLIonicHnElement;
-  new (): HTMLIonicHnElement;
-};
+import {
+  IonicHn as IonicHn
+} from './components/ionic-hn/ionic-hn';
+
 declare global {
+  interface HTMLIonicHnElement extends IonicHn, HTMLElement {
+  }
+  var HTMLIonicHnElement: {
+    prototype: HTMLIonicHnElement;
+    new (): HTMLIonicHnElement;
+  };
   interface HTMLElementTagNameMap {
-      "ionic-hn": HTMLIonicHnElement;
+    "ionic-hn": HTMLIonicHnElement;
   }
   interface ElementTagNameMap {
-      "ionic-hn": HTMLIonicHnElement;
+    "ionic-hn": HTMLIonicHnElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "ionic-hn": JSXElements.IonicHnAttributes;
-      }
+    interface IntrinsicElements {
+      "ionic-hn": JSXElements.IonicHnAttributes;
+    }
   }
   namespace JSXElements {
-      export interface IonicHnAttributes extends HTMLAttributes {
-        
-      }
+    export interface IonicHnAttributes extends HTMLAttributes {
+      
+    }
   }
 }
 
-import { jobsPage as JobsPage } from './components/jobs-page/jobs-page';
 
-interface HTMLJobsPageElement extends JobsPage, HTMLElement {
-}
-declare var HTMLJobsPageElement: {
-  prototype: HTMLJobsPageElement;
-  new (): HTMLJobsPageElement;
-};
+import {
+  jobsPage as JobsPage
+} from './components/jobs-page/jobs-page';
+
 declare global {
+  interface HTMLJobsPageElement extends JobsPage, HTMLElement {
+  }
+  var HTMLJobsPageElement: {
+    prototype: HTMLJobsPageElement;
+    new (): HTMLJobsPageElement;
+  };
   interface HTMLElementTagNameMap {
-      "jobs-page": HTMLJobsPageElement;
+    "jobs-page": HTMLJobsPageElement;
   }
   interface ElementTagNameMap {
-      "jobs-page": HTMLJobsPageElement;
+    "jobs-page": HTMLJobsPageElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "jobs-page": JSXElements.JobsPageAttributes;
-      }
+    interface IntrinsicElements {
+      "jobs-page": JSXElements.JobsPageAttributes;
+    }
   }
   namespace JSXElements {
-      export interface JobsPageAttributes extends HTMLAttributes {
-        
-          match?: any,
-          history?: any
-      }
+    export interface JobsPageAttributes extends HTMLAttributes {
+      
+        match?: any,
+        history?: RouterHistory
+    }
   }
 }
 
-import { NewsPage as ListContainer } from './components/list-container/list-container';
 
-interface HTMLListContainerElement extends ListContainer, HTMLElement {
-}
-declare var HTMLListContainerElement: {
-  prototype: HTMLListContainerElement;
-  new (): HTMLListContainerElement;
-};
+import {
+  NewsPage as ListContainer
+} from './components/list-container/list-container';
+
 declare global {
+  interface HTMLListContainerElement extends ListContainer, HTMLElement {
+  }
+  var HTMLListContainerElement: {
+    prototype: HTMLListContainerElement;
+    new (): HTMLListContainerElement;
+  };
   interface HTMLElementTagNameMap {
-      "list-container": HTMLListContainerElement;
+    "list-container": HTMLListContainerElement;
   }
   interface ElementTagNameMap {
-      "list-container": HTMLListContainerElement;
+    "list-container": HTMLListContainerElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "list-container": JSXElements.ListContainerAttributes;
-      }
+    interface IntrinsicElements {
+      "list-container": JSXElements.ListContainerAttributes;
+    }
   }
   namespace JSXElements {
-      export interface ListContainerAttributes extends HTMLAttributes {
-        
-          pageNum?: number,
-          type?: any,
-          loadingCtrl?: any
-      }
+    export interface ListContainerAttributes extends HTMLAttributes {
+      
+        pageNum?: number,
+        type?: string
+    }
   }
 }
 
-import { NewsPage as NewsPage } from './components/news-page/news-page';
 
-interface HTMLNewsPageElement extends NewsPage, HTMLElement {
-}
-declare var HTMLNewsPageElement: {
-  prototype: HTMLNewsPageElement;
-  new (): HTMLNewsPageElement;
-};
+import {
+  NewsPage as NewsPage
+} from './components/news-page/news-page';
+
 declare global {
+  interface HTMLNewsPageElement extends NewsPage, HTMLElement {
+  }
+  var HTMLNewsPageElement: {
+    prototype: HTMLNewsPageElement;
+    new (): HTMLNewsPageElement;
+  };
   interface HTMLElementTagNameMap {
-      "news-page": HTMLNewsPageElement;
+    "news-page": HTMLNewsPageElement;
   }
   interface ElementTagNameMap {
-      "news-page": HTMLNewsPageElement;
+    "news-page": HTMLNewsPageElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "news-page": JSXElements.NewsPageAttributes;
-      }
+    interface IntrinsicElements {
+      "news-page": JSXElements.NewsPageAttributes;
+    }
   }
   namespace JSXElements {
-      export interface NewsPageAttributes extends HTMLAttributes {
-        
-          match?: any,
-          history?: any
-      }
+    export interface NewsPageAttributes extends HTMLAttributes {
+      
+        match?: any,
+        history?: RouterHistory
+    }
   }
 }
 
-import { ShowPage as ShowPage } from './components/show-page/show-page';
 
-interface HTMLShowPageElement extends ShowPage, HTMLElement {
-}
-declare var HTMLShowPageElement: {
-  prototype: HTMLShowPageElement;
-  new (): HTMLShowPageElement;
-};
+import {
+  ShowPage as ShowPage
+} from './components/show-page/show-page';
+
 declare global {
+  interface HTMLShowPageElement extends ShowPage, HTMLElement {
+  }
+  var HTMLShowPageElement: {
+    prototype: HTMLShowPageElement;
+    new (): HTMLShowPageElement;
+  };
   interface HTMLElementTagNameMap {
-      "show-page": HTMLShowPageElement;
+    "show-page": HTMLShowPageElement;
   }
   interface ElementTagNameMap {
-      "show-page": HTMLShowPageElement;
+    "show-page": HTMLShowPageElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "show-page": JSXElements.ShowPageAttributes;
-      }
+    interface IntrinsicElements {
+      "show-page": JSXElements.ShowPageAttributes;
+    }
   }
   namespace JSXElements {
-      export interface ShowPageAttributes extends HTMLAttributes {
-        
-          match?: any,
-          history?: any
-      }
+    export interface ShowPageAttributes extends HTMLAttributes {
+      
+        match?: any,
+        history?: RouterHistory
+    }
   }
 }
 
-import { StoryList as StoryList } from './components/story-list/story-list';
 
-interface HTMLStoryListElement extends StoryList, HTMLElement {
-}
-declare var HTMLStoryListElement: {
-  prototype: HTMLStoryListElement;
-  new (): HTMLStoryListElement;
-};
+import {
+  StoryList as StoryList
+} from './components/story-list/story-list';
+
 declare global {
+  interface HTMLStoryListElement extends StoryList, HTMLElement {
+  }
+  var HTMLStoryListElement: {
+    prototype: HTMLStoryListElement;
+    new (): HTMLStoryListElement;
+  };
   interface HTMLElementTagNameMap {
-      "story-list": HTMLStoryListElement;
+    "story-list": HTMLStoryListElement;
   }
   interface ElementTagNameMap {
-      "story-list": HTMLStoryListElement;
+    "story-list": HTMLStoryListElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "story-list": JSXElements.StoryListAttributes;
-      }
+    interface IntrinsicElements {
+      "story-list": JSXElements.StoryListAttributes;
+    }
   }
   namespace JSXElements {
-      export interface StoryListAttributes extends HTMLAttributes {
-        
-          stories?: any
-      }
+    export interface StoryListAttributes extends HTMLAttributes {
+      
+        stories?: any
+    }
   }
 }
 

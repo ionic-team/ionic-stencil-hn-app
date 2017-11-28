@@ -1,4 +1,4 @@
-import { Component, Prop, PropDidChange, State } from '@stencil/core';
+import { Component, Prop, PropDidChange, PropWillChange, State } from '@stencil/core';
 import { LoadingController } from '@ionic/core';
 
 
@@ -20,10 +20,12 @@ export class NewsPage {
     // fetch without loading for the first run
     // so we dont pull in the loading controller 
     // for the first view
+    console.log('fetching');
     fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
       return rsp.json();
 
     }).then(data => {
+      console.log('have data', data);
       this.stories = data;
 
     }).catch((err) => {
@@ -31,24 +33,29 @@ export class NewsPage {
     });
   }
 
+  @PropWillChange('pageNum')
+  something() {
+
+  }
+
   @PropDidChange('pageNum')
   fetchNew() {
-    this.loadingCtrl.create({ content: 'fetching articles...' }).then((loading) => {
-      loading.present().then(() => {
+    /*this.loadingCtrl.create({ content: 'fetching articles...' }).then((loading) => {
+      loading.present().then(() => {*/
         fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
           return rsp.json();
         }).then(data => {
           if (data.length !== 0) {
             this.stories = data;
-            loading.dismiss();
+            // loading.dismiss();
           }
 
         }).catch((err) => {
           console.error('Could not load data', err);
-          loading.dismiss();
+          // loading.dismiss();
         });
-      })
-    })
+      // })
+    // })
   }
 
   render() {
