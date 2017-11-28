@@ -14,7 +14,7 @@ export class IonicHn {
           <ion-toolbar color='primary'>
 
             <ion-buttons slot='start'>
-              <ion-icon name='ionic'></ion-icon>
+              <ion-icon id='ionic-icon' name='ionic'></ion-icon>
             </ion-buttons>
 
             <div class='tabs-bar'>

@@ -13,6 +13,9 @@ exports.config = {
   serviceWorker: {
     globPatterns: [
       '**/*.{js,css,json,html,ico,png}'
+    ],
+    globIgnores: [
+      'build/app/svg/*.js'
     ]
   }
 };

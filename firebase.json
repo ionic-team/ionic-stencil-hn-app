@@ -20,7 +20,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</build/app/app.nejcpffg.js>;rel=preload;as=script,</build/app/4acpehze.js>;rel=preload;as=script,</build/app/vqdmmwyk.js>;rel=preload;as=script,</build/app/ga7zzchw.js>;rel=preload;as=script,</build/app/icy6acjg.js>;rel=preload;as=script,</build/app/5piuuqes.js>;rel=preload;as=script,</build/app/mf1gtnfx.js>;rel=preload;as=script,</build/app/5i3rvlms.js>;rel=preload;as=script,</build/app/beonakql.js>;rel=preload;as=script,</build/app/vtylgtkk.js>;rel=preload;as=script,</build/app/5e3mm8py.js>;rel=preload;as=script"
+            "value": "</build/app/app.nejcpffg.js>;rel=preload;as=script,</build/app/4acpehze.js>;rel=preload;as=script,</build/app/vqdmmwyk.js>;rel=preload;as=script,</build/app/ga7zzchw.js>;rel=preload;as=script,</build/app/icy6acjg.js>;rel=preload;as=script,</build/app/5piuuqes.js>;rel=preload;as=script,</build/app/ekoj24xv.js>;rel=preload;as=script,</build/app/5i3rvlms.js>;rel=preload;as=script,</build/app/beonakql.js>;rel=preload;as=script,</build/app/vtylgtkk.js>;rel=preload;as=script,</build/app/5e3mm8py.js>;rel=preload;as=script,<https://node-hnapi.herokuapp.com/news?page=1>;rel=preload;as=fetch"
           }
         ]
       }

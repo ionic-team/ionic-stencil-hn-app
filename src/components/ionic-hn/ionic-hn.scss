@@ -1,10 +1,10 @@
 ionic-hn {
-  ion-header ion-icon {
+  #ionic-icon {
     fill: #fff;
     margin-top: 5px;
   }
 
-  ion-header ion-icon svg {
+  #ionic-icon svg {
     width: 4em;
     height: 2.2em;
   }
@@ -63,6 +63,12 @@ ionic-hn {
       padding-left: 18em;
       padding-right: 18em;
       background: #f3f3f3;
+    }
+  }
+
+  @media(max-width: 368px) {
+    ion-icon {
+      display: none;
     }
   }
 }

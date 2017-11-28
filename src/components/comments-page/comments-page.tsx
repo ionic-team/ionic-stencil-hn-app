@@ -17,16 +17,10 @@ export class CommentsPage {
   apiRootUrl: string = 'https://hnpwa.com/api/v0';
 
   componentWillLoad() {
-    this.loadingCtrl.create({ content: 'fetching comments...' }).then(loading => {
-      loading.present().then(() => {
-        fetch(`${this.apiRootUrl}/item/${this.match.params.id}.json`).then((response: any) => {
-          return response.json()
-        }).then((data) => {
-          this.comments = data.comments;
-
-          loading.dismiss();
-        });
-      })
+    fetch(`${this.apiRootUrl}/item/${this.match.params.id}.json`).then((response: any) => {
+      return response.json()
+    }).then((data) => {
+      this.comments = data.comments;
     });
   }
 
