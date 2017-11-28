@@ -33,6 +33,7 @@ export class NewsPage {
     });
   }
 
+  // workaround for https://github.com/ionic-team/stencil/issues/312
   @PropWillChange('pageNum')
   something() {
 
@@ -40,22 +41,16 @@ export class NewsPage {
 
   @PropDidChange('pageNum')
   fetchNew() {
-    /*this.loadingCtrl.create({ content: 'fetching articles...' }).then((loading) => {
-      loading.present().then(() => {*/
-        fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
-          return rsp.json();
-        }).then(data => {
-          if (data.length !== 0) {
-            this.stories = data;
-            // loading.dismiss();
-          }
+    fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
+      return rsp.json();
+    }).then(data => {
+      if (data.length !== 0) {
+        this.stories = data;
+      }
 
-        }).catch((err) => {
-          console.error('Could not load data', err);
-          // loading.dismiss();
-        });
-      // })
-    // })
+    }).catch((err) => {
+      console.error('Could not load data', err);
+    });
   }
 
   render() {
