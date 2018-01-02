@@ -14,7 +14,7 @@ export class askPage {
   @State() page: number;
 
   componentWillLoad() {
-    if (this.match.params.pageNum) {
+    if (this.match && this.match.params.pageNum) {
       this.page = parseInt(this.match.params.pageNum);
     } else {
       this.page = 1;

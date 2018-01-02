@@ -41,6 +41,23 @@ export class CommentsList {
           {items}
         </ion-list>
       );
+    } else {
+      return (
+        <ion-list>
+          {Array.from(Array(10)).map(() =>
+            <ion-item>
+              <ion-label>
+                <h2 class='list-header'>
+                  <ion-skeleton-text width='90%'></ion-skeleton-text>
+                </h2>
+                <div>
+                  <ion-skeleton-text width='80%'></ion-skeleton-text>
+                </div>
+              </ion-label>
+            </ion-item>
+          )}
+        </ion-list>
+      )
     }
   }
 }

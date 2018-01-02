@@ -36,9 +36,8 @@ declare global {
   }
   namespace JSXElements {
     export interface AskPageAttributes extends HTMLAttributes {
-      
-        match?: any,
-        history?: RouterHistory
+      history?: RouterHistory;
+      match?: any;
     }
   }
 }
@@ -68,8 +67,7 @@ declare global {
   }
   namespace JSXElements {
     export interface CommentsListAttributes extends HTMLAttributes {
-      
-        commentList?: any
+      commentList?: any;
     }
   }
 }
@@ -99,9 +97,8 @@ declare global {
   }
   namespace JSXElements {
     export interface CommentsPageAttributes extends HTMLAttributes {
-      
-        match?: any,
-        history?: RouterHistory
+      history?: RouterHistory;
+      match?: any;
     }
   }
 }
@@ -161,9 +158,8 @@ declare global {
   }
   namespace JSXElements {
     export interface JobsPageAttributes extends HTMLAttributes {
-      
-        match?: any,
-        history?: RouterHistory
+      history?: RouterHistory;
+      match?: any;
     }
   }
 }
@@ -193,9 +189,8 @@ declare global {
   }
   namespace JSXElements {
     export interface ListContainerAttributes extends HTMLAttributes {
-      
-        pageNum?: number,
-        type?: string
+      pageNum?: number;
+      type?: string;
     }
   }
 }
@@ -225,9 +220,8 @@ declare global {
   }
   namespace JSXElements {
     export interface NewsPageAttributes extends HTMLAttributes {
-      
-        match?: any,
-        history?: RouterHistory
+      history?: RouterHistory;
+      match?: any;
     }
   }
 }
@@ -257,9 +251,8 @@ declare global {
   }
   namespace JSXElements {
     export interface ShowPageAttributes extends HTMLAttributes {
-      
-        match?: any,
-        history?: RouterHistory
+      history?: RouterHistory;
+      match?: any;
     }
   }
 }
@@ -289,8 +282,7 @@ declare global {
   }
   namespace JSXElements {
     export interface StoryListAttributes extends HTMLAttributes {
-      
-        stories?: any
+      stories?: any;
     }
   }
 }

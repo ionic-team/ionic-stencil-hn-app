@@ -1,4 +1,4 @@
-import { Component, Prop, PropDidChange, PropWillChange, State } from '@stencil/core';
+import { Component, Prop, PropDidChange, State } from '@stencil/core';
 import { LoadingController } from '@ionic/core';
 
 
@@ -11,6 +11,7 @@ export class NewsPage {
   @Prop() pageNum: number;
   @Prop() type: string;
   @Prop({ connect: 'ion-loading-controller' }) loadingCtrl: LoadingController;
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   @State() stories: any[];
 
@@ -21,22 +22,19 @@ export class NewsPage {
     // so we dont pull in the loading controller 
     // for the first view
     console.log('fetching');
-    fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
-      return rsp.json();
 
-    }).then(data => {
-      console.log('have data', data);
-      this.stories = data;
+    if (!this.isServer) {
+      fetch(`${this.apiRootUrl}/${this.type}?page=${this.pageNum}`).then(rsp => {
+        return rsp.json();
 
-    }).catch((err) => {
-      console.error('Could not load data', err);
-    });
-  }
+      }).then(data => {
+        console.log('have data', data);
+        this.stories = data;
 
-  // workaround for https://github.com/ionic-team/stencil/issues/312
-  @PropWillChange('pageNum')
-  something() {
-
+      }).catch((err) => {
+        console.error('Could not load data', err);
+      });
+    }
   }
 
   @PropDidChange('pageNum')
