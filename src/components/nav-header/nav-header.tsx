@@ -13,7 +13,7 @@ export class Navheader {
         <ion-toolbar color='primary'>
 
           <ion-buttons slot='start'>
-            <ion-icon id='ionic-icon' name='ionic'></ion-icon>
+            <ion-icon id='ionic-icon' name='logo-ionic'></ion-icon>
           </ion-buttons>
 
           <div class='tabs-bar'>
