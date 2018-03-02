@@ -3,9 +3,23 @@
  * It contains typing information for all components that exist in this project
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
+declare global {
+  namespace JSX {
+    interface Element {}
+    export interface IntrinsicElements {}
+  }
+  namespace JSXElements {}
+
+  interface HTMLStencilElement extends HTMLElement {
+    componentOnReady(): Promise<this>;
+    componentOnReady(done: (ele?: this) => void): void;
+  }
+
+  interface HTMLAttributes {}
+}
 
 import '@stencil/router';
-
+import 'ionicons';
 import '@ionic/core';
 
 import {
@@ -17,7 +31,7 @@ import {
 } from './components/ask-page/ask-page';
 
 declare global {
-  interface HTMLAskPageElement extends AskPage, HTMLElement {
+  interface HTMLAskPageElement extends AskPage, HTMLStencilElement {
   }
   var HTMLAskPageElement: {
     prototype: HTMLAskPageElement;
@@ -48,7 +62,7 @@ import {
 } from './components/comments-list/comments-list';
 
 declare global {
-  interface HTMLCommentsListElement extends CommentsList, HTMLElement {
+  interface HTMLCommentsListElement extends CommentsList, HTMLStencilElement {
   }
   var HTMLCommentsListElement: {
     prototype: HTMLCommentsListElement;
@@ -78,7 +92,7 @@ import {
 } from './components/comments-page/comments-page';
 
 declare global {
-  interface HTMLCommentsPageElement extends CommentsPage, HTMLElement {
+  interface HTMLCommentsPageElement extends CommentsPage, HTMLStencilElement {
   }
   var HTMLCommentsPageElement: {
     prototype: HTMLCommentsPageElement;
@@ -109,7 +123,7 @@ import {
 } from './components/ionic-hn/ionic-hn';
 
 declare global {
-  interface HTMLIonicHnElement extends IonicHn, HTMLElement {
+  interface HTMLIonicHnElement extends IonicHn, HTMLStencilElement {
   }
   var HTMLIonicHnElement: {
     prototype: HTMLIonicHnElement;
@@ -139,7 +153,7 @@ import {
 } from './components/jobs-page/jobs-page';
 
 declare global {
-  interface HTMLJobsPageElement extends JobsPage, HTMLElement {
+  interface HTMLJobsPageElement extends JobsPage, HTMLStencilElement {
   }
   var HTMLJobsPageElement: {
     prototype: HTMLJobsPageElement;
@@ -170,7 +184,7 @@ import {
 } from './components/list-container/list-container';
 
 declare global {
-  interface HTMLListContainerElement extends ListContainer, HTMLElement {
+  interface HTMLListContainerElement extends ListContainer, HTMLStencilElement {
   }
   var HTMLListContainerElement: {
     prototype: HTMLListContainerElement;
@@ -197,11 +211,41 @@ declare global {
 
 
 import {
+  Navheader as NavHeader
+} from './components/nav-header/nav-header';
+
+declare global {
+  interface HTMLNavHeaderElement extends NavHeader, HTMLStencilElement {
+  }
+  var HTMLNavHeaderElement: {
+    prototype: HTMLNavHeaderElement;
+    new (): HTMLNavHeaderElement;
+  };
+  interface HTMLElementTagNameMap {
+    "nav-header": HTMLNavHeaderElement;
+  }
+  interface ElementTagNameMap {
+    "nav-header": HTMLNavHeaderElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "nav-header": JSXElements.NavHeaderAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NavHeaderAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   NewsPage as NewsPage
 } from './components/news-page/news-page';
 
 declare global {
-  interface HTMLNewsPageElement extends NewsPage, HTMLElement {
+  interface HTMLNewsPageElement extends NewsPage, HTMLStencilElement {
   }
   var HTMLNewsPageElement: {
     prototype: HTMLNewsPageElement;
@@ -232,7 +276,7 @@ import {
 } from './components/show-page/show-page';
 
 declare global {
-  interface HTMLShowPageElement extends ShowPage, HTMLElement {
+  interface HTMLShowPageElement extends ShowPage, HTMLStencilElement {
   }
   var HTMLShowPageElement: {
     prototype: HTMLShowPageElement;
@@ -263,7 +307,7 @@ import {
 } from './components/story-list/story-list';
 
 declare global {
-  interface HTMLStoryListElement extends StoryList, HTMLElement {
+  interface HTMLStoryListElement extends StoryList, HTMLStencilElement {
   }
   var HTMLStoryListElement: {
     prototype: HTMLStoryListElement;
@@ -287,3 +331,4 @@ declare global {
   }
 }
 
+declare global { namespace JSX { interface StencilJSX {} } }

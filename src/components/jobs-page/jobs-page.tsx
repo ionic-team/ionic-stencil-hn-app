@@ -22,37 +22,33 @@ export class jobsPage {
   }
 
   forward() {
-    console.log('updating page');
     this.page = this.page + 1;
-    console.log(this.page);
     this.history.push(`/jobs/${this.page}`, {});
   }
 
   back() {
-    console.log('updating page', this.page);
     if (this.page !== 1) {
       this.page = this.page - 1;
-      console.log(this.page);
       this.history.push(`/jobs/${this.page}`, {});
     }
   }
 
   render() {
-    console.log('render');
     return (
-      <ion-page class='show-page'>
+      <ion-page>
+        <nav-header></nav-header>
         <ion-content>
           <list-container pageNum={this.page} type='jobs'></list-container>
         </ion-content>
         <ion-footer>
           <ion-toolbar>
             <ion-buttons slot='start'>
-              <ion-button 
-                onClick={() => this.back()} 
-                clear 
+              <ion-button
+                onClick={() => this.back()}
+                fill='clear'
                 color='primary'
                 class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}
-                >
+              >
                 Prev
               </ion-button>
             </ion-buttons>
@@ -60,9 +56,9 @@ export class jobsPage {
             <span class='page-number'>
               page {this.page}
             </span>
-            
+
             <ion-buttons slot='end'>
-              <ion-button onClick={() => this.forward()} clear color='primary'>
+              <ion-button onClick={() => this.forward()} fill='clear' color='primary'>
                 Next
               </ion-button>
             </ion-buttons>

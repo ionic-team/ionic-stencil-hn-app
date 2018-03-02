@@ -1,15 +1,6 @@
+const sass = require('@stencil/sass');
+
 exports.config = {
-  bundles: [
-    { components: ['ionic-hn', 'story-list', 'news-page'] },
-    { components: ['show-page'] },
-    { components: ['jobs-page'] },
-    { components: ['ask-page'] },
-    { components: ['comments-page', 'comments-list']}
-  ],
-  collections: [
-    { name: '@stencil/router' },
-    { name: '@ionic/core' }
-  ],
   serviceWorker: {
     globPatterns: [
       '**/*.{js,css,json,html,ico,png}'
@@ -17,7 +8,11 @@ exports.config = {
     globIgnores: [
       'build/app/svg/*.js'
     ]
-  }
+  },
+  plugins: [
+    sass()
+  ],
+  globalStyle: 'src/global/variables.css'
 };
 
 exports.devServer = {

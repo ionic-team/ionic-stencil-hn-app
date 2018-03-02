@@ -28,17 +28,16 @@ export class NewsPage {
   }
 
   back() {
-    console.log('updating page', this.page);
     if (this.page !== 1) {
       this.page = this.page - 1;
-      console.log(this.page);
       this.history.push(`/news/${this.page}`, {});
     }
   }
 
   render() {
     return (
-      <ion-page class='show-page'>
+      <ion-page>
+        <nav-header></nav-header>
         <ion-content>
           <list-container pageNum={this.page} type='news'></list-container>
         </ion-content>
@@ -47,7 +46,7 @@ export class NewsPage {
             <ion-buttons slot='start'>
               <ion-button
                 onClick={() => this.back()}
-                clear
+                fill='clear'
                 color='primary'
                 class={{ 'no-back': this.page === 1, 'yes-back': this.page > 1 }}>
                 Prev
@@ -59,7 +58,7 @@ export class NewsPage {
             </span>
 
             <ion-buttons slot='end'>
-              <ion-button onClick={() => this.forward()} clear color='primary'>
+              <ion-button onClick={() => this.forward()} fill='clear' color='primary'>
                 Next
               </ion-button>
             </ion-buttons>
