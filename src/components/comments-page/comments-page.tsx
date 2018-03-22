@@ -30,9 +30,14 @@ export class CommentsPage {
     this.history.goBack();
   }
 
+  hostData() {
+    return {
+      class: {'ion-page': true}
+    };
+  }
+
   render() {
-    return (
-      <ion-page>
+    return [
         <ion-header>
           <ion-toolbar color='primary'>
             <ion-title class='comments-title' slot='start'>
@@ -45,12 +50,11 @@ export class CommentsPage {
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
-        </ion-header>
+        </ion-header>,
 
         <ion-content>
           <comments-list commentList={this.comments}></comments-list>
         </ion-content>
-      </ion-page>
-    );
+    ];
   }
 }

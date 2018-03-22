@@ -1,23 +1,4 @@
 ionic-hn {
-  ion-page {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  
-    position: absolute;
-    z-index: 0;
-    display: flex;
-  
-    flex-direction: column;
-    justify-content: space-between;
-  
-    width: 100%;
-    height: 100%;
-  
-    contain: layout size style;
-  }
-
   ion-footer ion-toolbar div.toolbar-background {
     background: white;
   }
@@ -43,7 +24,7 @@ ionic-hn {
       margin-left: 18.3em;
     }
 
-    ion-page {
+    .ion-page {
       padding-left: 18em;
       padding-right: 18em;
       background: #f3f3f3;

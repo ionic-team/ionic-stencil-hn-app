@@ -34,13 +34,18 @@ export class NewsPage {
     }
   }
 
+  hostData() {
+    return {
+      class: {'ion-page': true}
+    };
+  }
+
   render() {
-    return (
-      <ion-page>
-        <nav-header></nav-header>
+    return [
+        <nav-header></nav-header>,
         <ion-content>
           <list-container pageNum={this.page} type='news'></list-container>
-        </ion-content>
+        </ion-content>,
         <ion-footer>
           <ion-toolbar>
             <ion-buttons slot='start'>
@@ -64,7 +69,6 @@ export class NewsPage {
             </ion-buttons>
           </ion-toolbar>
         </ion-footer>
-      </ion-page>
-    );
+    ];
   }
 }

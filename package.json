@@ -15,9 +15,9 @@
     "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
-    "@ionic/core": "0.1.1",
-    "@stencil/core": "0.6.16",
-    "@stencil/router": "0.0.17-1"
+    "@ionic/core": "0.1.5-1",
+    "@stencil/core": "0.7.6",
+    "@stencil/router": "0.0.28"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",

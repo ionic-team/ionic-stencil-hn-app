@@ -13,6 +13,8 @@ declare global {
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
     componentOnReady(done: (ele?: this) => void): void;
+
+    forceUpdate(): void;
   }
 
   interface HTMLAttributes {}
@@ -38,20 +40,21 @@ declare global {
     new (): HTMLAskPageElement;
   };
   interface HTMLElementTagNameMap {
-    "ask-page": HTMLAskPageElement;
+    'ask-page': HTMLAskPageElement;
   }
   interface ElementTagNameMap {
-    "ask-page": HTMLAskPageElement;
+    'ask-page': HTMLAskPageElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "ask-page": JSXElements.AskPageAttributes;
+      'ask-page': JSXElements.AskPageAttributes;
     }
   }
   namespace JSXElements {
     export interface AskPageAttributes extends HTMLAttributes {
-      history?: RouterHistory;
-      match?: any;
+      'history'?: RouterHistory;
+      'match'?: any;
+      
     }
   }
 }
@@ -69,19 +72,20 @@ declare global {
     new (): HTMLCommentsListElement;
   };
   interface HTMLElementTagNameMap {
-    "comments-list": HTMLCommentsListElement;
+    'comments-list': HTMLCommentsListElement;
   }
   interface ElementTagNameMap {
-    "comments-list": HTMLCommentsListElement;
+    'comments-list': HTMLCommentsListElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "comments-list": JSXElements.CommentsListAttributes;
+      'comments-list': JSXElements.CommentsListAttributes;
     }
   }
   namespace JSXElements {
     export interface CommentsListAttributes extends HTMLAttributes {
-      commentList?: any;
+      'commentList'?: any;
+      
     }
   }
 }
@@ -99,20 +103,21 @@ declare global {
     new (): HTMLCommentsPageElement;
   };
   interface HTMLElementTagNameMap {
-    "comments-page": HTMLCommentsPageElement;
+    'comments-page': HTMLCommentsPageElement;
   }
   interface ElementTagNameMap {
-    "comments-page": HTMLCommentsPageElement;
+    'comments-page': HTMLCommentsPageElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "comments-page": JSXElements.CommentsPageAttributes;
+      'comments-page': JSXElements.CommentsPageAttributes;
     }
   }
   namespace JSXElements {
     export interface CommentsPageAttributes extends HTMLAttributes {
-      history?: RouterHistory;
-      match?: any;
+      'history'?: RouterHistory;
+      'match'?: any;
+      
     }
   }
 }
@@ -130,18 +135,19 @@ declare global {
     new (): HTMLIonicHnElement;
   };
   interface HTMLElementTagNameMap {
-    "ionic-hn": HTMLIonicHnElement;
+    'ionic-hn': HTMLIonicHnElement;
   }
   interface ElementTagNameMap {
-    "ionic-hn": HTMLIonicHnElement;
+    'ionic-hn': HTMLIonicHnElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "ionic-hn": JSXElements.IonicHnAttributes;
+      'ionic-hn': JSXElements.IonicHnAttributes;
     }
   }
   namespace JSXElements {
     export interface IonicHnAttributes extends HTMLAttributes {
+      
       
     }
   }
@@ -160,20 +166,21 @@ declare global {
     new (): HTMLJobsPageElement;
   };
   interface HTMLElementTagNameMap {
-    "jobs-page": HTMLJobsPageElement;
+    'jobs-page': HTMLJobsPageElement;
   }
   interface ElementTagNameMap {
-    "jobs-page": HTMLJobsPageElement;
+    'jobs-page': HTMLJobsPageElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "jobs-page": JSXElements.JobsPageAttributes;
+      'jobs-page': JSXElements.JobsPageAttributes;
     }
   }
   namespace JSXElements {
     export interface JobsPageAttributes extends HTMLAttributes {
-      history?: RouterHistory;
-      match?: any;
+      'history'?: RouterHistory;
+      'match'?: any;
+      
     }
   }
 }
@@ -191,20 +198,21 @@ declare global {
     new (): HTMLListContainerElement;
   };
   interface HTMLElementTagNameMap {
-    "list-container": HTMLListContainerElement;
+    'list-container': HTMLListContainerElement;
   }
   interface ElementTagNameMap {
-    "list-container": HTMLListContainerElement;
+    'list-container': HTMLListContainerElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "list-container": JSXElements.ListContainerAttributes;
+      'list-container': JSXElements.ListContainerAttributes;
     }
   }
   namespace JSXElements {
     export interface ListContainerAttributes extends HTMLAttributes {
-      pageNum?: number;
-      type?: string;
+      'pageNum'?: number;
+      'type'?: string;
+      
     }
   }
 }
@@ -222,18 +230,19 @@ declare global {
     new (): HTMLNavHeaderElement;
   };
   interface HTMLElementTagNameMap {
-    "nav-header": HTMLNavHeaderElement;
+    'nav-header': HTMLNavHeaderElement;
   }
   interface ElementTagNameMap {
-    "nav-header": HTMLNavHeaderElement;
+    'nav-header': HTMLNavHeaderElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "nav-header": JSXElements.NavHeaderAttributes;
+      'nav-header': JSXElements.NavHeaderAttributes;
     }
   }
   namespace JSXElements {
     export interface NavHeaderAttributes extends HTMLAttributes {
+      
       
     }
   }
@@ -252,20 +261,21 @@ declare global {
     new (): HTMLNewsPageElement;
   };
   interface HTMLElementTagNameMap {
-    "news-page": HTMLNewsPageElement;
+    'news-page': HTMLNewsPageElement;
   }
   interface ElementTagNameMap {
-    "news-page": HTMLNewsPageElement;
+    'news-page': HTMLNewsPageElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "news-page": JSXElements.NewsPageAttributes;
+      'news-page': JSXElements.NewsPageAttributes;
     }
   }
   namespace JSXElements {
     export interface NewsPageAttributes extends HTMLAttributes {
-      history?: RouterHistory;
-      match?: any;
+      'history'?: RouterHistory;
+      'match'?: any;
+      
     }
   }
 }
@@ -283,20 +293,21 @@ declare global {
     new (): HTMLShowPageElement;
   };
   interface HTMLElementTagNameMap {
-    "show-page": HTMLShowPageElement;
+    'show-page': HTMLShowPageElement;
   }
   interface ElementTagNameMap {
-    "show-page": HTMLShowPageElement;
+    'show-page': HTMLShowPageElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "show-page": JSXElements.ShowPageAttributes;
+      'show-page': JSXElements.ShowPageAttributes;
     }
   }
   namespace JSXElements {
     export interface ShowPageAttributes extends HTMLAttributes {
-      history?: RouterHistory;
-      match?: any;
+      'history'?: RouterHistory;
+      'match'?: any;
+      
     }
   }
 }
@@ -314,19 +325,20 @@ declare global {
     new (): HTMLStoryListElement;
   };
   interface HTMLElementTagNameMap {
-    "story-list": HTMLStoryListElement;
+    'story-list': HTMLStoryListElement;
   }
   interface ElementTagNameMap {
-    "story-list": HTMLStoryListElement;
+    'story-list': HTMLStoryListElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "story-list": JSXElements.StoryListAttributes;
+      'story-list': JSXElements.StoryListAttributes;
     }
   }
   namespace JSXElements {
     export interface StoryListAttributes extends HTMLAttributes {
-      stories?: any;
+      'stories'?: any;
+      
     }
   }
 }
